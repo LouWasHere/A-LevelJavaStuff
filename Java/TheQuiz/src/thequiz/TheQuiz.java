@@ -1,28 +1,42 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package thequiz;
 import java.io.*;
-/**
- *
- * @author l-bishop
- */
-public class TheQuiz {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        String myGuess = null;
-        BufferedReader x = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("When was the World Wide Web created?");
-        System.out.println("A - 1990");
-        System.out.println("B - 1991");
-        System.out.println("C - 1992");
-        System.out.println("D - 1993");
-        
+import java.util.Scanner;
+public class TheQuiz
+{
+    public static int correctAnswer(int score)
+    {
+        System.out.println("That's correct, you genius!");
+        score = score +1;
+        return score;
     }
-    
+    public static void incorrectAnswer()
+    {
+        System.out.println("Sorry, that's not correct.");
+    }
+    public static void finishedQuiz(int score)
+    {
+        System.out.println("That's it! You got " + score + "! Well done!");
+    }
+    public static void main(String[] args) throws IOException 
+    {
+        String myGuess = null;
+        int score = 0;
+        
+        //Scanner scanner = new Scanner(System.in);
+        //int myInt = scanner.nextInt();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Who was the hit game Armchair Communist created by?");
+        System.out.println("A - Hideo Kojima\nB - Dilan Moore\nC - Toby Fox\nD - Shigiru Miyamoto");
+        myGuess = br.readLine();
+        if(myGuess.equals("B") || myGuess.equals("b"))
+        {
+            score = correctAnswer(score);
+        }
+        else
+        {
+            incorrectAnswer();
+        }
+        finishedQuiz(score);
+    }
 }
