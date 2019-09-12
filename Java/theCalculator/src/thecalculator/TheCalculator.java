@@ -21,6 +21,27 @@ public class TheCalculator
     {
         return numberOne/numberTwo;
     }
+    public static double inputNumbers()
+    {
+        Scanner scanner = new Scanner(System.in);
+        boolean wenttocatch = false;
+        double input = 0;
+        do
+            {
+                System.out.print("Enter a number : ");
+                if(scanner.hasNextInt())
+                {
+                    input = scanner.nextDouble();
+                    wenttocatch = true;
+                }
+                else
+                {
+                    scanner.nextLine();
+                    System.out.println("Enter a valid numerical value");
+                }
+            }while(!wenttocatch);
+        return input;
+    }
     public static void main(String[] args) 
     {
         boolean loop = true;
@@ -28,12 +49,12 @@ public class TheCalculator
         while(loop == true)
         {
             System.out.println("Please enter the first number.");
-            Scanner scanner = new Scanner(System.in);
             DecimalFormat format = new DecimalFormat("##.00");
-            double firstNumber = scanner.nextDouble();
+            double firstNumber = inputNumbers();
             System.out.println("Please enter the second number.");
-            double secondNumber = scanner.nextDouble();
+            double secondNumber = inputNumbers();
             System.out.println("Please enter the function (+, -, * or /).");
+            Scanner scanner = new Scanner(System.in);
             char character = scanner.next().charAt(0);
             switch (character) {
                 case '+':
