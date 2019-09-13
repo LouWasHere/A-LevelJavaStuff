@@ -1,0 +1,52 @@
+import java.io.*;
+public class MyTranslator{
+    	public static void main(String[] args){
+		BufferedReader y = new BufferedReader(new InputStreamReader(System.in));
+        	MyTranslator myObjTrans = new  MyTranslator();
+		String[][] myWords =  myObjTrans.generatePhrases();
+		String myInput = null;
+		System.out.println("\t\t-*-*- The Translator -*-*- \n------>Choose a word to translate (enter a number ID):");
+
+		for(int i = 0; i < myWords.length; i++){
+			System.out.println(myWords[i][0]+ ") " + myWords[i][1]);
+		}
+
+		try{ 
+			myInput = y.readLine();
+		}catch(IOException e){      
+			System.out.println("Error: " + e);
+		}
+		System.out.println("--------------------------------------------------");
+
+		for(int i = 0; i < myWords.length; i++){
+			if(myWords[i][0].equals(myInput)){
+				System.out.println(myWords[i][1] + " in German is " + myWords[i][2]);
+				System.out.println(myWords[i][1] + " in French is " + myWords[i][3]);
+			}
+		}
+		System.out.println("--------------------------------------------------");
+	}
+	
+	public String[][] generatePhrases(){
+		String[][] myPhrases = new String[][]
+		{
+			{"1","House","Haus","Maison"},
+			{"2","Street","Strasse","Rue"},
+			{"3","Left","Links","Gauche"},
+			{"4","Right","Recht","Droit"},
+			{"5","Straight Ahead","Geradeaus","Tout Droit"},
+			{"6","Light","Licht","Lumiere"},
+			{"7","Time","Zeit","Temps"},
+			{"8","Door","Tur","Porte"},
+			{"9","Coat","Mantel","Manteau"},
+			{"10","Shirt","Hemd","Chemise"},
+			{"11","Colour","Fabre","Couleur"},
+			{"12","Horse","Pferd ","Cheval"},
+			{"13","Cow","Kuh","Vache"},
+			{"14","Pig","Schwein","Porc"},
+			{"15","Sheep","Schaf","Mouton"},
+			{"16","Goat","Ziege","Chevre"}
+		};
+		return myPhrases;
+	}
+}

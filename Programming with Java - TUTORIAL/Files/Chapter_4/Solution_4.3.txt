@@ -1,0 +1,64 @@
+import java.io.*; 
+public class TheQuiz{
+	public static void main(String[] args){
+          	String myGuess = null;
+          	BufferedReader x = new BufferedReader(new InputStreamReader(System.in)); 
+          
+          	System.out.println("When was the WWW created?"); 
+          	System.out.println("A - 1990");
+          	System.out.println("B - 1991");
+          	System.out.println("C - 1992");
+          	System.out.println("D - 1993");       
+          	System.out.println("Enter your answer (letter):"); 
+
+          	try{   
+               		myGuess = x.readLine();
+          	}catch(IOException e){
+              		System.out.println("Error: " + e);
+          	}
+
+          	if(myGuess.equals("A") || myGuess.equals("a")){ 
+                	System.out.println("");                   
+                	System.out.println("That is incorrect!");
+          	} else if(myGuess.equals("B") || myGuess.equals("b")){
+                	System.out.println("");  
+                	System.out.println("That is correct!");
+          	} else if(myGuess.equals("C") || myGuess.equals("d")){
+               	 	System.out.println("");  
+                	System.out.println("That is correct!");
+          	} else if(myGuess.equals("D") || myGuess.equals("d")){
+                	System.out.println("");  
+                	System.out.println("That is correct!");
+          	} 
+
+          	//<-------Just repeat from here for each question
+
+          	System.out.println("Who invented the WWW?"); 
+          	System.out.println("A - Sir Tim Berners-Lee");
+          	System.out.println("B - Tim Berners-Lee");
+          	System.out.println("C – Bobby Bill Right");
+          	System.out.println("D – James May");       
+          	System.out.println("Enter your answer (letter):"); 
+          	try{   
+               		myGuess = x.readLine();
+          	}catch(IOException e){
+              		System.out.println("Error: " + e);
+          	}
+
+          	if(myGuess.equals("A") || myGuess.equals("a")){ //don’t forget to change 
+                	System.out.println("");                   //the answers
+                	System.out.println("That is correct!");
+          	} else if(myGuess.equals("B") || myGuess.equals("b")){
+                	System.out.println("");  
+                	System.out.println("That is incorrect!");
+          	} else if(myGuess.equals("C") || myGuess.equals("d")){
+                	System.out.println("");  
+                	System.out.println("That is incorrect!");
+          	} else if(myGuess.equals("D") || myGuess.equals("d")){
+                	System.out.println("");  
+                	System.out.println("That is incorrect!");
+          	} 
+
+             	//<-------End of repeat
+      }
+}

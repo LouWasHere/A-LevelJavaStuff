@@ -1,10 +1,21 @@
 package thecalculatorwithbufferedreader;
 import java.io.*;
-import java.util.Scanner;
-import java.lang.Math; 
 import java.text.DecimalFormat;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;   
 public class TheCalculatorWithBufferedReader 
 {
+    public static boolean isNumeric(String strNum) 
+    {
+        try 
+        {
+            double d = Double.parseDouble(strNum);
+        } 
+        catch (NumberFormatException | NullPointerException nfe) {
+        return false;
+    }
+    return true;
+    }
     public static double addNumbers(double numberOne, double numberTwo)
     {
         return numberOne+numberTwo;
@@ -26,32 +37,40 @@ public class TheCalculatorWithBufferedReader
         }
         catch (Exception e)
         {
-                    System.out.println("You dingus, you tried to divide by zero.");
+            System.out.println("You dingus, you tried to divide by zero or something, didn't you.");
         }
         return answer;
     }
     public static double inputNumbers()
     {
-        Scanner scanner = new Scanner(System.in);
-        boolean wenttocatch = false;
-        double input = 0;
-        do
+        boolean isNumeric = true;
+        String inputString = null;
+        double inputDouble;
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        while(isNumeric == false)
+        {
+            try
             {
-                System.out.print("Enter a number : ");
-                if(scanner.hasNextInt())
-                {
-                    input = scanner.nextDouble();
-                    wenttocatch = true;
-                }
-                else
-                {
-                    scanner.nextLine();
-                    System.out.println("Enter a valid numerical value");
-                }
-            }while(!wenttocatch);
-        return input;
+                System.out.println("Please enter a valid interger.");
+                inputString = br.readLine();
+            }
+            catch (IOException e)
+            {
+                System.out.println("Error: " + e);
+            }
+            if(isNumeric(inputString) == false)
+            {
+                System.out.println("Doofus. That wasn't a number, was it?");
+            }
+            else
+            {
+                isNumeric = true;
+            }
+        }
+        inputDouble = Double.parseDouble(inputString);
+        return inputDouble;
     }
-    public static void main(String[] args) 
+    public static void main(String[] args) throws IOException 
     {
         boolean loop = true;
         double answer = 0;
@@ -63,9 +82,10 @@ public class TheCalculatorWithBufferedReader
             System.out.println("Please enter the second number.");
             double secondNumber = inputNumbers();
             System.out.println("Please enter the function (+, -, * or /).");
-            Scanner scanner = new Scanner(System.in);
-            char character = scanner.next().charAt(0);
-            switch (character) {
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            char character = (char)br.read();
+            switch (character) 
+            {
                 case '+':
                     answer = addNumbers(firstNumber, secondNumber);
                     loop = false;
@@ -87,7 +107,6 @@ public class TheCalculatorWithBufferedReader
                     break;
             }
         }
-        answer = (Math.round(answer * 100.0)/100.0);
         System.out.println("The answer is " + answer);
     }
 }

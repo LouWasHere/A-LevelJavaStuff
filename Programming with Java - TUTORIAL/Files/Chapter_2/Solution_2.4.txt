@@ -1,0 +1,12 @@
+public class MyLoan{
+	public static void main(String[] args){
+        	double annualRate = 3.4;
+             	short monthsRemaining = 12;
+             	double amountToRepay = 20000; 
+            	double total = (3.4/100*amountToRepay) + amountToRepay;
+             	double monthly = total/monthsRemaining;
+
+             	System.out.println("Total: " + total);
+             	System.out.println("Monthly Repayment: " + monthly);
+	}
+}

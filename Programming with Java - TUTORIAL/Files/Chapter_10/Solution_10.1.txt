@@ -1,0 +1,46 @@
+import java.util.ArrayList;
+public class MyTestRun{
+    	public static void main(String[] args){
+		Guitar x = new Guitar();
+		Guitar y = new Guitar();
+		Guitar z = new Guitar();
+		
+		z.manufacturer = "Fender";
+		z.model = "Stratocaster";
+		z.type = "Electric";
+		z.numOfStrings = 6;
+		z.numOfFrets = 22;
+
+		y.manufacturer = "Ibanez";
+		y.model = "JEM";
+		y.type = "Electric";
+		y.numOfStrings = 6;
+		y.numOfFrets = 24;
+		
+		x.manufacturer = "Taylor";
+		x.model = "Sitka";
+		x.type = "Acoustic";
+		x.numOfStrings = 12;
+		x.numOfFrets = 20;
+		
+		System.out.println("Manufacturer: " + z.manufacturer);
+		System.out.println("Model: " + z.model);
+		System.out.println("Type: " + z.type);
+		System.out.println("Number of Strings: " + z.numOfStrings);
+		System.out.println("Number of Frets: " + z.numOfFrets);
+		System.out.println("");
+
+		System.out.println("Manufacturer: " + y.manufacturer);
+		System.out.println("Model: " + y.model);
+		System.out.println("Type: " + y.type);
+		System.out.println("Number of Strings: " + y.numOfStrings);
+		System.out.println("Number of Frets: " + y.numOfFrets);
+		System.out.println("");
+
+		System.out.println("Manufacturer: " + x.manufacturer);
+		System.out.println("Model: " + x.model);
+		System.out.println("Type: " + x.type);
+		System.out.println("Number of Strings: " + x.numOfStrings);
+		System.out.println("Number of Frets: " + x.numOfFrets);
+	}
+}

@@ -1,0 +1,57 @@
+import java.io.*;
+import java.util.ArrayList;
+public class  MyTestRun{
+
+	private ArrayList<Guitar> myGuitars = new ArrayList<Guitar>();
+
+	public static void main(String[] args){
+		BufferedReader y = new BufferedReader(new InputStreamReader(System.in));			
+		String myManufacturer = null;
+		String myModel = null;
+		String myType = null;
+		int myNumOfStrings = 0;
+		int myNumFrets = 0;
+		MyTestRun GuitarProgram = new   MyTestRun(); 
+		
+		while(true){ 
+			try{ 
+				System.out.println("\n--->Please enter guitar manufacturer;");	
+			     	myManufacturer = y.readLine();
+			     	System.out.println("\n--->Please enter guitar model;");
+			     	myModel = y.readLine();
+			     	System.out.println("\n--->Please enter guitar type;");					     
+				myType = y.readLine();
+				System.out.println("\n--->Please enter the number of guitar strings;");					     
+				myNumOfStrings = Integer.parseInt(y.readLine());
+				System.out.println("\n--->Please enter the number of guitar frets;");					     
+				myNumFrets = Integer.parseInt(y.readLine()); 
+			}catch(IOException e){
+			     	System.out.println("Error: " + e);
+			}
+			
+			GuitarProgram.addGuitar(myManufacturer, myModel, myType, myNumOfStrings, myNumFrets); 
+			GuitarProgram.showGuitars(); 
+	    	}
+	}
+	
+	public void addGuitar(String a_manufacturer, String a_model, String a_type, int a_numStrings, int a_numFrets ){
+		Guitar x = new Guitar();
+		x.manufacturer = a_manufacturer;
+		x.model = a_model;
+		x.type = a_type;
+		x.numOfStrings = a_numStrings;
+		x.numOfFrets = a_numFrets;
+	        myGuitars.add(x);
+	}
+	
+	public void showGuitars(){
+		for(Guitar myItem : myGuitars){ 
+			System.out.println("\n---->Guitars:");
+			System.out.println("Manufacturer: " + myItem.manufacturer);
+			System.out.println("Model: " + myItem.model);
+			System.out.println("Type: " + myItem.type);
+			System.out.println("Number of Strings: " + myItem.numOfStrings);
+			System.out.println("Number of Frets: " + myItem.numOfFrets);
+		}
+	}
+}

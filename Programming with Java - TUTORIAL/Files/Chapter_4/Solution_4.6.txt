@@ -1,0 +1,38 @@
+import java.io.*; 
+public class TheDrivingLicence{
+	public static void main(String[] args){
+          	int years; 
+          	int points;
+          	String z = null;
+          	String y = null;
+          	BufferedReader x = new BufferedReader(new InputStreamReader(System.in));
+ 
+          	System.out.println("====== WELCOME TO THE DRIVING LICENCE APP ======"); 
+          	System.out.println(""); 
+          	System.out.println("Enter the number of years held;"); 
+          	try{   
+              		z = x.readLine();
+          	}catch(IOException e){
+              		System.out.println("Error: " + e);
+          	}
+          	
+		System.out.println(""); 
+		System.out.println("Enter the number of points occurred:");
+          	try{   
+               		y = x.readLine();
+          	}catch(IOException e){
+              		System.out.println("Error: " + e);
+          	}
+
+          	years = Integer.parseInt(z);
+          	points = Integer.parseInt(y); 
+	
+          	if(years <= 2 && points >= 6){
+               		System.out.println("Driving Licence Disqualified");      
+          	}else if (years > 2 && points >= 12) {
+               		System.out.println("Driving Licence is Time-Banned"); 
+          	} else {
+               		System.out.println("Driving Licence is Safe");
+          	}
+      }
+}

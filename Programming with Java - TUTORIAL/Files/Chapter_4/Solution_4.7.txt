@@ -1,0 +1,53 @@
+import java.io.*; 
+public class TheCalculator{
+	public static void main(String[] args){
+          	int Num1;
+          	int Num2;       
+          	String myOperation = null; 
+          	String myNumberString = null;
+          	BufferedReader x = new BufferedReader(new InputStreamReader(System.in)); 
+
+          	System.out.println("<---------- THE CALCULATOR ---------->");
+          	System.out.println(""); 
+          	System.out.println("Enter the first number:");
+          	try{   
+               		myNumberString = x.readLine();
+          	}catch(IOException e){
+              		System.out.println("Error: " + e);
+          	}
+          	Num1 = Integer.parseInt(myNumberString);
+
+          	System.out.println(""); 
+          	System.out.println("Enter the second number:");
+          	try{   
+               		myNumberString = x.readLine();
+          	}catch(IOException e){
+              		System.out.println("Error: " + e);
+          	}
+          	Num2 = Integer.parseInt(myNumberString);
+
+          	System.out.println(""); 
+          	System.out.println("Choose an operation:");
+          	System.out.println("(Type either + or / or - or *)");
+          	try{   
+               		myOperation = x.readLine();
+          	}catch(IOException e){
+              		System.out.println("Error: " + e);
+          	}
+          	myOperation = myOperation.trim();
+    
+          	System.out.println("THE ANSWER:");
+          	System.out.println(""); 
+          	if(myOperation.equals("+")){
+                 	System.out.println(Num1 + " + " + Num2 + " = " + (Num1 + Num2));
+          	} else if (myOperation.equals("-")) {
+                 	System.out.println(Num1 + " - " + Num2 + " = " + (Num1 - Num2));
+          	} else if (myOperation.equals("/")) {
+                 	System.out.println(Num1 + " / " + Num2 + " = " + (Num1 / Num2));
+          	} else if (myOperation.equals("*")) {
+                 	System.out.println(Num1 + " * " + Num2 + " = " + (Num1 * Num2));
+          	} else {
+                 	System.out.println("Error: Operation Not Identified");
+          	} 
+      }
+}

@@ -1,0 +1,102 @@
+import java.io.*;
+import java.text.*;
+public class MyWageApp {
+      public static void main(String[] args){
+             	MyWageApp myWageCalc = new  MyWageApp ();
+		System.out.println("-->Welcome to the Wage App \n");
+		double myHourlyRate = myWageCalc.hourlyRateSelection();
+		double myHours = myWageCalc.hoursWorked();
+		double myGross = myWageCalc.calculateGross(myHours,myHourlyRate);
+	       	double myTax = myWageCalc.incomeTax(myGross);
+		double GrossMinusTax = myGross - myTax;
+		double myNI = myWageCalc.nationalInsurance(GrossMinusTax);
+		double myNet = myGross - myTax - myNI;
+		myWageCalc.summary(myGross,myNet,myTax,myNI,myHours,myHourlyRate);
+	}
+	
+	public double calculateGross(double hours, double hourlyRate){
+		double gross = 0;
+		double rate1 = 0;
+		double rate2 = 0;
+		double rate3 = 0;
+		if(hours <= 40){
+			gross = hours * hourlyRate;
+		}else if (hours <= 50){
+			rate1 = 40 * hourlyRate;
+			rate2 = (hours-40) * (hourlyRate * 1.5);
+			gross = rate1 + rate2;
+		}else if (hours > 50){
+			rate1 = 40 * hourlyRate;
+			rate2 = 10 * (hourlyRate * 1.5);
+			rate3 = (hours-50) * (hourlyRate * 2);
+			gross = rate1 + rate2 + rate3;
+		}
+		return gross;
+	}
+
+       	public double hourlyRateSelection(){
+		BufferedReader x = new BufferedReader(new InputStreamReader(System.in));	
+		String input = null;
+		double hourlyRate = 0;
+		System.out.println("\n->Choose a rate:");
+		System.out.println("<A> Administrator - 7.43 p/h");
+		System.out.println("<B> Programmer - 16.98 p/h");
+		System.out.println("<C> Team Leader - 21.10 p/h");
+
+		try{
+                  	input = x.readLine();
+             	}catch(IOException e){
+                  	System.out.println("Error: " + e);
+             	}
+		input = input.toUpperCase();
+
+		switch (input){
+			case "A":
+				hourlyRate = 7.43;
+			break;
+			case "B":
+				hourlyRate = 16.98;
+			break;
+			case "C":
+				hourlyRate = 21.10;
+			break;
+		}
+		return hourlyRate;
+	}
+
+	public double incomeTax(double gross){
+		double tax = gross * 0.25;
+		return tax;
+	}
+
+       	public double nationalInsurance(double remainingGross){
+		double ni = remainingGross * 0.11;
+		return ni;
+	}
+
+	public double hoursWorked(){
+		BufferedReader x = new BufferedReader(new InputStreamReader(System.in));	
+		String input = null;
+		double hours = 0;
+		System.out.println("\n->Enter number of hours worked:");
+		try{
+                	input = x.readLine();
+            	}catch(IOException e){
+                	System.out.println("Error: " + e);
+             	}
+		hours = Double.parseDouble(input);
+		return hours;
+	}
+
+	public void summary(double gross, double net, double incomeTax, double nationalInsurance, double hours, double hourlyRate){
+		DecimalFormat myF = new DecimalFormat("#,###.##");
+		System.out.println("\n-->Summary ---------------------");
+		System.out.println("Gross Earnings: " + myF.format(gross));
+		System.out.println("Net Income: " + myF.format(net));
+		System.out.println("Tax Paid: " + myF.format(incomeTax));
+		System.out.println("NI Paid: " + myF.format(nationalInsurance));
+		System.out.println("Hours Worked: " + myF.format(hours));
+		System.out.println("Hourly Rate: " + myF.format(hourlyRate));
+		System.out.println("-------------------------------- ");
+    	}	
+}

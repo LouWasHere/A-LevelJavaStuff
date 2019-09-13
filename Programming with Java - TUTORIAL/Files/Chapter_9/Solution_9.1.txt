@@ -1,0 +1,49 @@
+import java.io.*;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+
+public class MyFileWriterProgram{
+    	public static void main(String[] args){
+			
+		BufferedReader y = new BufferedReader(new InputStreamReader(System.in));
+		String name = null;
+		String address = null;
+		String telephone = null;
+				
+		System.out.println("\n--->Please enter your name;");
+		try{ 
+			name = y.readLine();
+		}catch(IOException e){
+			System.out.println("Error: " + e);
+		}
+
+                System.out.println("\n--->Please enter your address;");
+		try{ 
+			address = y.readLine();
+		}catch(IOException e){
+			System.out.println("Error: " + e);
+		}
+
+		System.out.println("\n--->Please enter your telephone;");
+		try{ 
+			telephone = y.readLine();
+		}catch(IOException e){
+			System.out.println("Error: " + e);
+		}
+		
+		FileWriter writeObj;
+		PrintWriter printObj;
+		String myDirectory = System.getProperty("user.dir");
+		try{
+                	writeObj = new FileWriter(myDirectory + "\\myText.txt" , true);
+			printObj = new PrintWriter(writeObj);
+			printObj.println("Name: " + name);
+			printObj.println("Address: " + address);
+			printObj.println("Telephone Number: " + telephone);
+			printObj.close();
+		}catch(Exception ex){
+			System.out.println("error: " + ex);
+		}
+		System.out.println("\n--->Written to folder: " + myDirectory);
+	}
+}

@@ -1,0 +1,15 @@
+public class MyStringWork{
+	public static void main(String[] args){
+             	String firstName ="joseph";
+             	String lastName ="HOPWOOD";
+
+             	firstName = firstName.toUpperCase();
+             	lastName = lastName.toLowerCase();
+             	int nameLength = lastName.length();   
+                 
+             	System.out.println("To Upper: " + firstName);
+             	System.out.println("To Lower: " + lastName);
+             	System.out.println("Length: " + nameLength);
+		System.out.println("this is how to use \"double quotes\" in Java ");
+	}
+}

@@ -1,0 +1,17 @@
+public class SevenDwarfs{
+    	public static void main(String[] args){
+		String[] myDwarfs = new String[7];
+		myDwarfs[0] = "Doc";
+		myDwarfs[1] = "Sleepy";
+		myDwarfs[2] = "Bashful";
+		myDwarfs[3] = "Grumpy";
+		myDwarfs[4] = "Happy";
+		myDwarfs[5] = "Sneezy";
+		myDwarfs[6] = "Dopey";
+		
+		System.out.println("The seven dwarfs are; \n");
+		for(int i = 0; i < myDwarfs.length; i++){          
+			System.out.println((i + 1) +") " + myDwarfs[i] + "\n");
+		}
+	}
+}

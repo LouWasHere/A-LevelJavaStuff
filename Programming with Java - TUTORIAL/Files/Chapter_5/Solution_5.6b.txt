@@ -1,0 +1,47 @@
+import java.io.*;
+import java.util.Random;
+public class TheGuessingGame{
+    public static void main(String[] args){
+
+        	Random rand = new Random();
+        	int myRandomNumber = rand.nextInt(50) + 1;
+        	int userGuess = 0;
+        	String userInput = null;
+        	boolean counter = true;
+        	BufferedReader x = new BufferedReader(new InputStreamReader(System.in));
+
+        	System.out.println("");
+        	System.out.println("* * * DAVES AMAZING GUESSING GAME * * *");
+        	System.out.println("");
+
+        	while(counter==true){
+            		System.out.println("");
+            		boolean counter2 = true;    
+            		while(counter2 == true){          
+                 		System.out.println("Please enter a number between 1 and 50:");
+                 		try{  
+                      			userInput = x.readLine();
+                 		}catch(IOException e){
+                      			System.out.println("Error: " + e);
+                 		}
+
+                 		userGuess = Integer.parseInt(userInput);
+                 		System.out.println("");
+                 		if(userGuess >= 1 && userGuess <=50){
+                        		counter2 = false;    
+                 		}else{System.out.println("Numbers 1 to 50 only!");}
+            		}
+
+            		counter2 = true;    
+            		if(userGuess==myRandomNumber){
+               			System.out.println("* * * * * Congratulations! * * * * *");
+               			System.out.println("You guessed the correct answer of " + myRandomNumber);
+               			counter = false;			
+            		}else if(userGuess < myRandomNumber){
+               			System.out.println("-----> Your guess of " + userGuess + " is too low");
+            		}else if(userGuess > myRandomNumber){
+ 		  		System.out.println("-----> Your guess of " + userGuess + " is too high");
+            		} 
+        	}
+    	}
+}

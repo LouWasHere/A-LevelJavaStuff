@@ -1,0 +1,30 @@
+import java.io.*; 
+public class ThePasswordApp{
+	public static void main(String[] args){
+          	String username = "admin"; 
+          	String password = "letmein";
+          	String usernameGuess = null;
+          	String passwordGuess = null;
+          	BufferedReader x = new BufferedReader(new InputStreamReader(System.in)); 
+
+          	System.out.println("Enter username:"); 
+          	try{   
+               		usernameGuess = x.readLine();
+          	}catch(IOException e){
+              		System.out.println("Error: " + e);
+          	}
+
+          	System.out.println("Enter password:"); 
+          	try{   
+               		passwordGuess = x.readLine();
+          	}catch(IOException e){
+              		System.out.println("Error: " + e);
+          	}
+          
+          	if(username.equals(usernameGuess) && password.equals(passwordGuess)){
+                	System.out.println("Access Granted");
+          	}else{
+                	System.out.println("Access Denied");
+          	}
+      }
+}

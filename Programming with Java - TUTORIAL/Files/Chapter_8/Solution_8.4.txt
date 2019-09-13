@@ -1,0 +1,49 @@
+import java.io.*;
+public class MyCars{
+    	public static void main(String[] args){
+		boolean count = true;
+		while(count==true){
+	      		String[] myCarList;
+	     		BufferedReader y = new BufferedReader(new InputStreamReader(System.in));
+
+			System.out.println("How many car manufacturers can you name?");
+			String myInput = null;
+			try{
+				myInput = y.readLine();
+			}catch(IOException e){
+				System.out.println("Error: " + e);
+			}
+	      		int myNum = Integer.parseInt(myInput);
+
+	      		myCarList = new String[myNum];
+            		System.out.println("\n\n<-- Enter your "+ myNum +" car manufacturers now -->");
+	     
+			for(int i = 0; i < myCarList.length; i++){
+	          		System.out.println("\n -Enter manufacturer number " + (i+1));			          
+				try{ 
+	                		myCarList[i] = y.readLine();
+	          		}catch(IOException e){ 
+                     			System.out.println("Error: " + e);
+	          		}
+	     		}
+
+           		System.out.println("\n\n<------ Your manufacturers are: ----->");
+           		for(int i = 0; i < myCarList.length; i++){
+                   		System.out.println((i+1)+") " +myCarList[i]);
+           		}
+
+           		System.out.println("\n\n---> Would you like another attempt? (Y/N)");		    
+			try{ 
+ 		   		myInput = y.readLine();
+	      		}catch(IOException e){      
+                 		System.out.println("Error: " + e);
+             		}
+
+            		if(myInput.equals("N")){
+                    		count = false;
+           		}else{
+                  		System.out.println("\n\nRESTARTING.........\n\n");
+           		}
+		}
+   	}	
+}

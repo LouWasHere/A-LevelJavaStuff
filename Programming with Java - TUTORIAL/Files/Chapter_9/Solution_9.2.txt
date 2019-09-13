@@ -1,0 +1,139 @@
+import java.io.*;
+import java.text.*;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+
+public class MySubwayApp{
+	
+	private String breadSize_item;
+	private double breadSize_price;
+	private String breadType_item;
+	private double breadType_price;
+	private String breadFilling_item;
+	private double breadFilling_price;
+	private BufferedReader y = new BufferedReader(new InputStreamReader(System.in));
+	private String choice;
+	private double total;
+
+   	public static void main(String[] args){
+		MySubwayApp myObj = new  MySubwayApp();
+		myObj.title();
+		myObj.breadSize();
+		myObj.breadType();
+		myObj.breadFilling();
+		myObj.summary();
+		myObj.writeToFile();
+		
+	}
+
+	public void title(){
+		System.out.println(" /$$$$$$            /$$   ");
+		System.out.println("/$$__  $$          | $$    ");
+		System.out.println("| $$  \\__/ /$$   /$$| $$$$$$$  /$$  /$$  /$$  /$$$$$$  /$$   /$$");
+		System.out.println("|  $$$$$$ | $$  | $$| $$__  $$| $$ | $$ | $$ |____  $$| $$  | $$");
+		System.out.println(" \\____  $$| $$  | $$| $$  \\ $$| $$ | $$ | $$  /$$$$$$$| $$  | $$");
+		System.out.println(" /$$  \\ $$| $$  | $$| $$  | $$| $$ | $$ | $$ /$$__  $$| $$  | $$");
+		System.out.println("|  $$$$$$/|  $$$$$$/| $$$$$$$/|  $$$$$/$$$$/|  $$$$$$$|  $$$$$$$");
+		System.out.println(" \\______/  \\______/ |_______/  \\_____/\\___/  \\_______/ \\____  $$");
+		System.out.println("                                                       /$$  | $$");
+		System.out.println("                                                      |  $$$$$$/");
+		System.out.println("                                                       \\______/ ");
+	}
+	
+	public void breadSize(){
+		System.out.println("\n--->Please choose a bread-size;");
+		System.out.println("\n--->A) 6-inch (1.65)\tB) 12-inch (2.30)");
+		try{ 
+			choice = y.readLine();
+		}catch(IOException e){
+			System.out.println("Error: " + e);
+		}
+		switch(choice){
+			case "A":
+				breadSize_item = "6-inch";
+				breadSize_price = 1.65;
+			break;
+			case "B":
+				breadSize_item = "12-inch";
+				breadSize_price = 2.30;
+			break;
+		}
+	}
+
+	public void breadType(){
+	    	System.out.println("\n--->Please choose a bread-type;");
+		System.out.println("\n--->A) Plain (0.40)\tB) Wheat(0.65)\tC) Italian (0.75)");
+		try{ 
+			choice = y.readLine();
+		}catch(IOException e){
+			System.out.println("Error: " + e);
+		}
+		switch(choice){
+			case "A":
+				breadType_item = "Plain";
+				breadType_price = 0.40;
+			break;
+			case "B":
+				breadType_item = "Wheat";
+				breadType_price = 0.65;
+			break;
+			case "C":
+				breadType_item = "Italian";
+				breadType_price = 0.75;
+			break;
+		}
+	}
+
+	public void breadFilling(){
+	    	System.out.println("\n--->Please choose a bread-filling;");
+		System.out.println("\n--->A) Cheese & Tomato (0.95)\tB) Italian Bacon (1.10)\tC) Tuna & Mayo (1.15)");
+		try{ 
+			choice = y.readLine();
+		}catch(IOException e){
+			System.out.println("Error: " + e);
+		}
+		switch(choice){
+			case "A":
+				breadFilling_item = "Cheese & Tomato";
+				breadFilling_price = 0.95;
+			break;
+			case "B":
+				breadFilling_item = "Italian Bacon";
+				breadFilling_price = 1.10;
+			break;
+			case "C":
+				breadFilling_item = "Tuna & Mayo";
+				breadFilling_price = 1.15;
+			break;
+		}
+	}
+
+	public void summary(){
+		total = breadSize_price + breadType_price + breadFilling_price;
+		System.out.println("\n--->ORDER SUMMARY<---");
+		System.out.println("Bread Size: " + breadSize_item);
+		System.out.println("Bread Type: " + breadType_item);
+		System.out.println("Bread Filling: " + breadFilling_item);
+		DecimalFormat df = new DecimalFormat("#.##");
+		System.out.println("Total: " + df.format(total));
+	}
+	
+	public void writeToFile(){
+		FileWriter writeObj;
+		PrintWriter printObj;
+		String myDirectory = System.getProperty("user.dir");
+		try{
+                	writeObj = new FileWriter(myDirectory + "\\myText.txt" , true);
+			printObj = new PrintWriter(writeObj);
+			printObj.println("");
+			printObj.println("Bread Size: " + breadSize_item);
+			printObj.println("Bread Type: " + breadType_item);
+			printObj.println("Bread Filling: " + breadFilling_item);
+			printObj.println("Total: " + total);
+			printObj.close();
+		}catch(Exception ex){
+			System.out.println("error: " + ex);
+		}
+		System.out.println("\n--->Written to folder: " + myDirectory);
+	}
+}

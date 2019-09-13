@@ -1,0 +1,40 @@
+import java.util.ArrayList;
+public class  MyTestRun {
+	public static void main(String[] args){
+		ArrayList<Guitar> myGuitars = new ArrayList<Guitar>();
+		Guitar x = new Guitar();
+		Guitar y = new Guitar();
+		Guitar z = new Guitar();
+		
+		z.manufacturer = "Fender";
+		z.model = "Stratocaster";
+		z.type = "Electric";
+		z.numOfStrings = 6;
+		z.numOfFrets = 22;
+
+		y.manufacturer = "Ibanez";
+		y.model = "JEM";
+		y.type = "Electric";
+		y.numOfStrings = 6;
+		y.numOfFrets = 24;
+		
+		x.manufacturer = "Taylor";
+		x.model = "Sitka";
+		x.type = "Acoustic";
+		x.numOfStrings = 12;
+		x.numOfFrets = 20;
+		
+		myGuitars.add(x);
+		myGuitars.add(y);
+		myGuitars.add(z);
+		
+		for(Guitar myItem : myGuitars){ 
+			System.out.println("\n---->Guitars:");
+			System.out.println("Manufacturer: " + myItem.manufacturer);
+			System.out.println("Model: " + myItem.model);
+			System.out.println("Type: " + myItem.type);
+			System.out.println("Number of Strings: " + myItem.numOfStrings);
+			System.out.println("Number of Frets: " + myItem.numOfFrets);
+		}
+	}	
+}

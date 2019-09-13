@@ -1,0 +1,19 @@
+public class  MyTransformerClass {
+
+	public static void main(String[] args){
+             	MyTransformerClass optimusPrime = new MyTransformerClass();
+             	MyTransformerClass bumbleBee = new MyTransformerClass();
+             	optimusPrime.transform();
+             	optimusPrime.untransform();
+             	bumbleBee.transform();
+             	bumbleBee.untransform();       
+	}
+
+       	public void transform(){
+		System.out.println("I have transformed");
+	}
+
+	public void untransform(){
+		System.out.println("I have untransformed");
+	}
+}

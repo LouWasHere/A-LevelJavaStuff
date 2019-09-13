@@ -1,0 +1,17 @@
+public class MyLuckyNumbers{
+	public static void main(String[] args){
+		int[] myLuckyNumbers = new int[5];
+		myLuckyNumbers[0] = 23;
+		myLuckyNumbers[1] = 34;
+		myLuckyNumbers[2] = 44;
+		myLuckyNumbers[3] = 98;
+		myLuckyNumbers[4] = 102;
+
+		System.out.println("\n--->My lucky numbers:");
+		System.out.println(myLuckyNumbers[0]);
+		System.out.println(myLuckyNumbers[1]);
+		System.out.println(myLuckyNumbers[2]);
+		System.out.println(myLuckyNumbers[3]);
+		System.out.println(myLuckyNumbers[4]);	
+	}
+}
