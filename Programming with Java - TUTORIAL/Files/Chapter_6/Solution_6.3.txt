@@ -1,0 +1,30 @@
+import java.io.*;
+public class TheRightAngleTriangle{
+    	public static void main(String[] args){
+
+         	BufferedReader j = new BufferedReader(new InputStreamReader(System.in));
+         	int userChoice;
+         	String input = null;
+
+         	System.out.println("Please enter a shape size (Between 2 and 20);");
+         	try{ 
+             		input = j.readLine();
+         	}catch(IOException er){
+             		System.out.println("Error: " + er);
+         	}
+
+         	userChoice = Integer.parseInt(input);
+         	userChoice = userChoice + 1;
+         	int z = userChoice;
+
+         	for(int i = 1; i < userChoice; i+=1){
+			System.out.println("");
+			for(int k = 1; k < z; k+=1){
+			 	System.out.print("*");
+			}
+			z = z - 1;
+	   	}
+	  	System.out.println("");
+	   	System.out.println("");			
+    	}
+}

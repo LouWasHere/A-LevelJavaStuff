@@ -1,0 +1,9 @@
+public class FavFilms{
+	public static void main(String[] args){
+		System.out.println("Lion King");
+             	System.out.println("Transformers");
+             	System.out.println("Aliens 2");
+             	System.out.println("The Mask");
+             	System.out.println("Aladdin");
+	}
+}

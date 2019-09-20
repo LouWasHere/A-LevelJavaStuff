@@ -1,0 +1,26 @@
+import java.io.*;
+public class MyTriangle{
+	public static void main(String[] args){
+
+          	BufferedReader x = new BufferedReader(new InputStreamReader(System.in));
+          	String userInput =null;
+          	int myNum; 
+
+          	System.out.println("Enter height: ");
+          	try{  
+              		userInput = x.readLine();
+          	}catch(IOException e){
+              		System.out.println("Error: " + e);
+          	}
+          	myNum = Integer.parseInt(userInput);
+
+          	int z = 2;
+          	for(int i=1; i<myNum+1; i++){
+              		for(int y=1; y<z; y++){
+                  		System.out.print("* ");
+             		}       
+           		System.out.println();
+           		z=z+1;
+           	}
+      	}
+}

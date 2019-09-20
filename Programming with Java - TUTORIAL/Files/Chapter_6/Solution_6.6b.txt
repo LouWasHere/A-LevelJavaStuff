@@ -1,0 +1,60 @@
+import java.io.*;
+public class TheEnigmaGame{
+    	public static void main(String[] args){
+
+       		BufferedReader x = new BufferedReader(new InputStreamReader(System.in));	
+		int myCounter = 10;
+		String myWord = "PROGRAMMING";
+		String myEncryption = "$2%824**1!8";
+		String input = null;
+		System.out.println("<> <> <> THE ENIGMA <> <> <>");
+
+		while(myCounter >= 1){
+        		System.out.println("");
+        		System.out.println("Crack the enigma code (guess a letter): " + myEncryption);
+        		System.out.println("-------------------------------------------------------");
+        		try{ 
+            			input = x.readLine();
+        		}catch(IOException er){
+	      			System.out.println("Error: " + er);
+        		}
+        		input = input.trim();
+        		input = input.toUpperCase();
+
+        		if(myWord.contains(input)){
+            			if(input.equals("P")){
+					myEncryption = myEncryption.replace("$","P"); 					
+				}else if(input.equals("R")){
+   		     			myEncryption = myEncryption.replace("2","R");
+				}else if(input.equals("O")){
+					myEncryption = myEncryption.replace("%","O");
+				}else if(input.equals("G")){
+					myEncryption = myEncryption.replace("8","G");
+				}else if(input.equals("A")){
+					myEncryption = myEncryption.replace("4","A");
+				}else if(input.equals("M")){
+					myEncryption = myEncryption.replace("*","M");
+				}else if(input.equals("I")){
+					myEncryption = myEncryption.replace("1","I");
+				}else if(input.equals("N")){
+					myEncryption = myEncryption.replace("!","N");
+				}
+			}else{
+				myCounter-=1;
+				System.out.println("");
+				System.out.println("-------------------------------------");				
+				System.out.println("----> Guesses Remaining: " + myCounter);				
+				System.out.println("-------------------------------------");				
+				System.out.println("");
+			}
+       			if(myWord.equals(myEncryption)){
+				System.out.println("");
+				System.out.println("-------------------------------------");				
+				System.out.println(" *** !!!CONGRATULATIONS!!! ***");					
+				System.out.println("----> ENGIMA CRACKED: " + myEncryption);				
+				System.out.println("-------------------------------------");				
+				myCounter = 0;
+			}
+		}
+    	}
+}

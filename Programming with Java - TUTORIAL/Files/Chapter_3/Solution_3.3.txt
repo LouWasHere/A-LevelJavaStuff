@@ -1,0 +1,8 @@
+public class DrivingLicence{
+	public static void main(String[] args){
+	    	int points = 13;
+           	if(points >= 12){
+               		System.out.println("You have been disqualified");
+           	}
+	}
+}

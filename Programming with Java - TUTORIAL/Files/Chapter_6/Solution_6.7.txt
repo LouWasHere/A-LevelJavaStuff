@@ -1,0 +1,45 @@
+import java.io.*;
+public class TheTopThree{
+   	 public static void main(String[] args){
+
+		BufferedReader x = new BufferedReader(new InputStreamReader(System.in));		
+		String myTop3 = null;
+		String[] myArray;
+		int length;
+
+		System.out.println("Enter your top 3 films;");
+		System.out.println("--------------------Film 1: --------------------------");		
+		try{ 
+			myTop3 = x.readLine();
+		}catch(IOException er){
+			System.out.println("Error: " + er);
+		}
+
+		System.out.println("--------------------Film 2: --------------------------");		
+		try{ 
+			myTop3 = myTop3 + " - " + x.readLine();
+		}catch(IOException er){
+			System.out.println("Error: " + er);
+		}
+
+		System.out.println("--------------------Film 3: --------------------------");	
+		try{ 
+			myTop3 = myTop3 + " - " + x.readLine();
+		}catch(IOException er){
+			System.out.println("Error: " + er);
+		}
+		length = myTop3.length();
+
+		System.out.println("\n \t \t Original String Length: " + length + "\n\n");		
+		myArray = myTop3.split("-");
+
+		System.out.println("YOUR TOP 3 FILMS :");
+		System.out.println("--------------------Film 1: --------------------------");		
+		System.out.println(myArray[0].trim());
+		System.out.println("--------------------Film 2: --------------------------");		
+		System.out.println(myArray[1].trim());
+		System.out.println("--------------------Film 3: --------------------------");		
+		System.out.println(myArray[2].trim());
+       		System.out.println("\n\n");
+    	}
+}

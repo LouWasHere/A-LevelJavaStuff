@@ -1,0 +1,57 @@
+import java.io.*;
+public class TheColourMixer{
+    	public static void main(String[] args){
+
+           	String colour1 = null;
+           	String colour2 = null;
+           	BufferedReader x = new BufferedReader(new InputStreamReader(System.in));
+           	System.out.println("# # # # # # The Colour Mixer# # # # # #");
+           	System.out.println(""); 
+   
+           	System.out.println("Choose a colour:"); 
+           	System.out.println("<A> Red");
+           	System.out.println("<B> Blue");
+           	System.out.println("<C> Black");
+           	try{ 
+                	colour1 = x.readLine();
+           	}catch(IOException e){
+                 	System.out.println("Error: " + e);
+           	}
+
+           	System.out.println("Choose a second colour to mix:"); 
+           	System.out.println("<A> Red");
+           	System.out.println("<B> Blue");
+           	System.out.println("<C> Black");
+           	try{ 
+                	colour2 = x.readLine();
+           	}catch(IOException e){
+                	System.out.println("Error: " + e);
+           	}
+
+           	if(colour1.equals("A") || colour1.equals("a")){
+                 	if(colour2.equals("A") || colour2.equals("a")){
+                      		System.out.println("RED + RED = RED"); 
+                 	}else if(colour2.equals("B") || colour2.equals("b")){
+                      		System.out.println("RED + BLUE = MAGENTA");
+                 	}else if(colour2.equals("C") || colour2.equals("c")){
+                      		System.out.println("RED + BLACK = DARK RED");
+                 	}
+           	}else if(colour1.equals("B") || colour1.equals("b")){
+                 	if(colour2.equals("A") || colour2.equals("a")){
+                      		System.out.println("BLUE + RED = MAGENTA");
+                 	}else if(colour2.equals("B") || colour2.equals("b")){
+                      		System.out.println("BLUE + BLUE = BLUE");
+                 	}else if(colour2.equals("C") || colour2.equals("c")){
+                      		System.out.println("BLUE + BLACK = DARK BLUE");
+                 	}
+           	}else if(colour1.equals("C") || colour1.equals("c")){
+                 	if(colour2.equals("A") || colour2.equals("a")){
+                      		System.out.println("BLACK + RED = DARK RED");
+                 	}else if(colour2.equals("B") || colour2.equals("b")){
+                      		System.out.println("BLACK + BLUE = DARK BLUE");
+                 	}else if(colour2.equals("C") || colour2.equals("c")){
+                      		System.out.println("BLACK + BLACK = BLACK");
+                 	}
+           	}
+    	}
+}

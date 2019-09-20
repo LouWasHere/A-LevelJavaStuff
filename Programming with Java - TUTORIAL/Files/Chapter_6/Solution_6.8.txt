@@ -1,0 +1,8 @@
+
+	1. "yyyy-MM-dd hh:mm z"
+
+	2. "yyyy-MM-dd E hh:mm:ss"
+
+	3. "E, dd-MM-yyyy z"
+
+	4. "E, dd-MM-yyyy - hh:mm a"

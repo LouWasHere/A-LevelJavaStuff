@@ -1,0 +1,137 @@
+import java.io.*;
+import java.text.DecimalFormat;
+public class AreaApp{
+    	public static void main(String[] args){
+
+          	boolean counter = true;
+          	BufferedReader x = new BufferedReader(new InputStreamReader(System.in)); 
+          	String myText = null;
+
+          	while(counter==true){
+                	System.out.println("<><><><><> The Area App <><><><><>");
+                	System.out.println("");        
+                	System.out.println("Choose a shape to calculate the area of:");         
+                	System.out.println("<1> Circle");
+                	System.out.println("<2> Square");
+                	System.out.println("<3> Rectangle");
+                	System.out.println("<4> Triangle");
+                	System.out.println("<5> Trapezium");
+                	try{   
+                        	myText = x.readLine();
+                	}catch(IOException e){
+                        	System.out.println("Error: " + e);
+                	}
+
+                	if(myText.equals("1")){
+                      		System.out.println(""); 
+                      		System.out.println("Enter the radius of the circle in cm:");  
+                      		try{   
+                            		myText = x.readLine();
+                      		}catch(IOException e){
+                            		System.out.println("Error: " + e);
+                      		}
+                      		double radius = Double.parseDouble(myText);
+                      		double area = 3.14159265359 * radius * radius;
+                      		DecimalFormat f = new DecimalFormat("##.00");
+                      		System.out.println("The area is: " + f.format(area) +"cm");
+                	}
+                	else if(myText.equals("2")){
+                      		System.out.println(""); 
+                      		System.out.println("Enter the length of the square in cm:");  
+                      		try{   
+                            		myText = x.readLine();
+                      		}catch(IOException e){
+                            		System.out.println("Error: " + e);
+                      		}
+                      		double length = Double.parseDouble(myText);
+                      		double area = length * length;
+                      		DecimalFormat f = new DecimalFormat("##.00");
+                      		System.out.println("The area is: " + f.format(area) +"cm");
+                	}      
+                	else if(myText.equals("3")){
+                      		System.out.println(""); 
+                      		System.out.println("Enter the length of the rectangle in cm:");  
+                     		try{   
+                            		myText = x.readLine();
+                      		}catch(IOException e){
+                            		System.out.println("Error: " + e);
+                      		}
+                      		double length = Double.parseDouble(myText);
+                      		System.out.println("Enter the width of the rectangle in cm:");  
+
+                      		try{   
+                            		myText = x.readLine();
+                      		}catch(IOException e){
+                            		System.out.println("Error: " + e);
+                      		}
+                      			double width = Double.parseDouble(myText);
+                      			double area = length * width;
+                      			DecimalFormat f = new DecimalFormat("##.00");
+                      			System.out.println("The area is: " + f.format(area) +"cm");
+                	}      
+                	else if(myText.equals("4")){
+                      		System.out.println(""); 
+                     		System.out.println("Enter the height of the triangle in cm:");  
+                      		try{   
+                            		myText = x.readLine();
+                      		}catch(IOException e){
+                            		System.out.println("Error: " + e);
+                      		}
+                      		double height = Double.parseDouble(myText);
+                      		System.out.println("Enter the base of the triangle in cm:");  
+
+                      		try{   
+                            		myText = x.readLine();
+                     		}catch(IOException e){
+                            		System.out.println("Error: " + e);
+                      		}
+                      		double base = Double.parseDouble(myText);
+                      		double area = 0.5 * base * height;
+                      		DecimalFormat f = new DecimalFormat("##.00");
+                      		System.out.println("The area is: " + f.format(area) +"cm");
+                	}      
+                	else if(myText.equals("5")){
+                      		System.out.println(""); 
+                      		System.out.println("Enter the height of the trapezium in cm:");  
+                      		try{   
+                            		myText = x.readLine();
+                      		}catch(IOException e){
+                            		System.out.println("Error: " + e);
+                      		}
+                      		double height = Double.parseDouble(myText);
+                      		System.out.println("Enter the base width of the trapezium in cm:");  
+                      		try{   
+                            		myText = x.readLine();
+                      		}catch(IOException e){
+                            		System.out.println("Error: " + e);
+                      		}
+                      		double base = Double.parseDouble(myText);
+                      		System.out.println("Enter the top width of the trapezium in cm:");  
+                      		try{   
+                            		myText = x.readLine();
+                      		}catch(IOException e){
+                            		System.out.println("Error: " + e);
+                      		}
+                      		double top = Double.parseDouble(myText);
+                      		double area = 0.5 * (base + top) * height;
+                      		DecimalFormat f = new DecimalFormat("##.00");
+                      		System.out.println("The area is: " + f.format(area) +"cm");
+                	}      
+  
+                	System.out.println("");
+                	System.out.println("Do you want to choose another shape? Y/N");
+                	try{   
+                        	myText = x.readLine();
+                	}catch(IOException e){
+                        	System.out.println("Error: " + e);
+                	}
+                	if(myText.equals("N") || myText.equals("n")){
+                        	counter = false;
+                	}else{
+                        	System.out.println("");     
+                        	System.out.println(" * * * Resetting... * * *");
+                       	 	System.out.println("");
+                	}
+          	}
+    	}
+}

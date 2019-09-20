@@ -1,0 +1,10 @@
+public class PasswordProgram{
+	public static void main(String[] args){
+	    	String myPassword = "letmein";
+           	if(myPassword.equals("letmein")){
+                	System.out.println("Access Granted");
+           	}else{
+                	System.out.println("Access Denied");  
+           	}	
+       }
+}

@@ -1,0 +1,39 @@
+import java.io.*;
+public class TheAnagramGame{
+    	public static void main(String[] args){
+
+         	BufferedReader x = new BufferedReader(new InputStreamReader(System.in));
+         	int myCounter = 10;
+         	int myNum = 1;
+         	String myAnswer = "PROGRAMMING";
+        	String input = null;
+         	String mySubString = null;
+         	System.out.println("<> <> <> THE ANAGRAM <> <> <>");
+
+         	while(myCounter >= 1){
+			System.out.println("");
+			System.out.println("Guess the anagram: MGOARRMIGPN");
+			try{ 
+	           		input = x.readLine();
+			}catch(IOException er){
+		     		System.out.println("Error: " + er);
+			}
+             		input = input.toUpperCase();
+
+			if(input.equals(myAnswer)){
+				System.out.println("");
+				System.out.println(" *** !!!CONGRATULATIONS!!! ***");
+				myCounter = 0;
+			}else{
+				myCounter-=1;
+				mySubString = myAnswer.substring(0,myNum);
+				System.out.println("");
+				System.out.println("---------------------------------------");
+				System.out.println("----> Here is a clue: " + mySubString);
+				System.out.println("---------------------------------------");
+				System.out.println("");
+				myNum+=1;		
+			}
+		}
+    	}
+}

@@ -1,0 +1,42 @@
+import java.io.*;
+public class TheTimesTable{
+	public static void main(String[] args){
+
+           	int myStartPoint;
+           	int myEndPoint;
+           	int multiplier;
+           	String input = null;
+           	BufferedReader x = new BufferedReader(new InputStreamReader(System.in));
+
+           	System.out.println("# # # # # # The Times Table # # # # # #");
+           	System.out.println("");    
+           	System.out.println("Enter a start point: 1-50"); 
+           	try{ 
+                 	input = x.readLine();
+           	}catch(IOException e){
+                 	System.out.println("Error: " + e);
+           	}
+           	myStartPoint = Integer.parseInt(input);
+ 
+           	System.out.println("Enter an end point: 1-50");
+           	try{ 
+                	input = x.readLine();
+           	}catch(IOException e){
+                	System.out.println("Error: " + e);
+           	}
+           	myEndPoint = Integer.parseInt(input);
+   
+                System.out.println("Enter the multiplier: 1-10");
+           	try{
+                	input = x.readLine();
+           	}catch(IOException e){
+              		System.out.println("Error: " + e);
+           	}
+           	multiplier = Integer.parseInt(input);
+
+           	System.out.println("The " + multiplier + " Times Table");
+	    	for(int i= myStartPoint; i< (myEndPoint+1); i++){
+               		System.out.println(i + " * " + multiplier + " = " + (i*multiplier)); 
+           	}      
+      }
+}

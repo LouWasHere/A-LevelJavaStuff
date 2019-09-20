@@ -1,0 +1,31 @@
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.Iterator;
+public class MyLotteryProgram{
+    	public static void main(String[] args){
+		Random rand = new Random();
+		ArrayList<Integer> myNums = new ArrayList<Integer>();
+		
+		myNums.add(rand.nextInt(54)+1);
+		myNums.add(rand.nextInt(54)+1);
+		myNums.add(rand.nextInt(54)+1);
+		myNums.add(rand.nextInt(54)+1);
+		myNums.add(rand.nextInt(54)+1);
+		
+		Iterator myIteration = myNums.iterator( );
+		System.out.print("--> The winning numbers are; ");
+		int y = 0;
+        	while (myIteration.hasNext()){
+			if(y < 4){
+				System.out.print(myIteration.next() + ", "); 
+			}else{
+				System.out.print(myIteration.next()); 
+			}
+			y+=1;
+		}
+
+		myNums.add(rand.nextInt(54)+1);
+		System.out.print(" and the bonus is " + myNums.get(5));
+	    	System.out.println("\n");
+	}
+}

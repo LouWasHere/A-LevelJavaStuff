@@ -1,0 +1,183 @@
+import java.io.*;
+import java.text.*;
+public class MyCurrencyConverter {
+
+	final double USD = 1.6117; //US Dollar
+	final double EUR = 1.2216; //Euro
+	final double AUD = 1.5578; //Australian Dollar
+	final double CAD = 1.5985; //Canadian Dollar
+	final double SWF = 1.4681; //Swiss Franc
+	final double HKD = 1.2507; //Hong Kong Dollar
+	final double JAY = 1.3173; //Japanese Yen
+	final double NZD = 1.9793; //New Zealand Dollar
+       
+	public static void main(String[] args){
+	   	Boolean myLoop = true;
+          	while(myLoop == true){//start of loop
+             		BufferedReader x = new BufferedReader(new InputStreamReader(System.in));	
+            		String input = null;
+			MyCurrencyConverter currencyConverter = new  MyCurrencyConverter ();
+
+			System.out.println("\n----->Choose an option:\n-----------------------");
+             		System.out.println("(A) Convert to GBP (Great British Pounds)");
+             		System.out.println("(B) Convert to FCA (Foreign Currency Amount)");  
+   
+             		try{
+                 	 	input = x.readLine();
+             		}catch(IOException e){
+                 	 	System.out.println("Error: " + e);
+             		}
+			input = input.toUpperCase();
+
+			if(input.equals("A")){
+				currencyConverter.convertToGBP();
+			}else if(input.equals("B")){
+				currencyConverter.convertToForeign();
+			}else{
+				System.out.println("Invalid Selection");
+			}
+
+           		System.out.println("\n----->Another Conversion? (Y/N):");
+           		String endLoop = null;
+          		try{
+                   		endLoop = x.readLine();
+             		}catch(IOException e){
+                  		System.out.println("Error: " + e);
+             		}
+          		if(endLoop.equals("N")){
+                  		myLoop = false;
+          		}
+          	}//end of loop
+      }
+
+      public void convertToForeign(){
+         	double gbp = 0;
+         	String choice = null;
+         	DecimalFormat myF = new DecimalFormat("#,###.##");
+         	BufferedReader x = new BufferedReader(new InputStreamReader(System.in));
+
+         	System.out.println("\n----->Enter a value in GBP:\n---------------------------");
+        	try{
+              		gbp = Double.parseDouble(x.readLine());
+         	}catch(IOException e){
+              		System.out.println("Error: " + e);
+         	}
+
+		System.out.println("\n----->Please choose a currency:\n-------------------------------");	   
+		System.out.println("<USD> United States Dollar");
+	   	System.out.println("<EUR> Euro"); 
+	  	System.out.println("<AUD> Australian Dollar");
+	  	System.out.println("<CAD> Canadian Dollar");
+	   	System.out.println("<SWF> Swiss Franc");
+	  	System.out.println("<HKD> Hong Kong Dollar"); 
+	   	System.out.println("<JAY> Japanese Yen");
+	   	System.out.println("<NZD> New Zealand Dollar");
+
+         	try{   
+               		choice = x.readLine();
+          	}catch(IOException e){
+              		System.out.println("Error: " + e);
+           	}
+	    	choice = choice.toUpperCase();
+
+	    	System.out.println("\n----------->CONVERSION<--------------");
+		switch (choice){
+			case "USD":
+				System.out.println(gbp + " GBP to USD = " + myF.format(gbp*USD));		       
+			break;
+			case "EUR":
+				System.out.println(gbp + " GBP to EUR = " + myF.format(gbp*EUR));			
+			break;
+			case "AUD":
+				System.out.println(gbp + " GBP to AUD = " + myF.format(gbp*AUD));			
+			break;
+			case "CAD":
+				System.out.println(gbp + " GBP to CAD = " + myF.format(gbp*CAD));			
+			break;
+			case "SWF":
+				System.out.println(gbp + " GBP to SWF = " + myF.format(gbp*SWF));			
+			break;	
+			case "HKD":
+				System.out.println(gbp + " GBP to HKD = " + myF.format(gbp*HKD));			
+			break;
+			case "JAY":
+				System.out.println(gbp + " GBP to JAY = " + myF.format(gbp*JAY));			
+			break;
+			case "NZD":
+				System.out.println(gbp + " GBP to NZD = " + myF.format(gbp*NZD));			
+			break;
+	   	}
+           	double commission = 0.03*gbp;
+	   	System.out.println("3% commission charge (GBP) of; " + myF.format(commission));		   
+      	}
+
+  	public void convertToGBP(){
+         	double fca = 0;
+	  	String choice = null;
+	  	DecimalFormat myF = new DecimalFormat("#,###.##");
+         	BufferedReader x = new BufferedReader(new InputStreamReader(System.in));
+
+	   	System.out.println("\n----->Enter a foreign currency amount:\n--------------------------------------");
+          	try{
+               		fca = Double.parseDouble(x.readLine());
+          	}catch(IOException e){
+               		System.out.println("Error: " + e);
+         	}
+
+   		System.out.println("\n----->Please choose a currency:\n-------------------------------");  	    
+		System.out.println("<USD> United States Dollar");
+          	System.out.println("<EUR> Euro");  
+          	System.out.println("<AUD> Australian Dollar");
+          	System.out.println("<CAD> Canadian Dollar");
+          	System.out.println("<SWF> Swiss Franc");
+          	System.out.println("<HKD> Hong Kong Dollar");
+          	System.out.println("<JAY> Japanese Yen");
+          	System.out.println("<NZD> New Zealand Dollar");
+
+          	try{
+               		choice = x.readLine();
+          	}catch(IOException e){
+               		System.out.println("Error: " + e);
+          	}
+		choice = choice.toUpperCase();
+
+           	System.out.println("\n----------->CONVERSION<--------------");
+           	String currency = null;	
+           	switch (choice){
+             		case "USD":
+		     		System.out.println(fca + " USD to GBP = " + myF.format(fca/USD));
+                  		currency = "USD";
+			break;
+			case "EUR":
+				System.out.println(fca + " EUR to GBP = " + myF.format(fca/EUR));
+                        	currency = "EUR";			
+             		break;
+			case "AUD":
+				System.out.println(fca + " AUD to GBP = " + myF.format(fca/AUD));
+ 	                        currency = "AUD";		
+                    	break;
+			case "CAD":
+				System.out.println(fca + " CAD to GBP = " + myF.format(fca/CAD));
+                    		currency = "CAD";			
+                   	break;
+			case "SWF":
+				System.out.println(fca + " SWF to GBP = " + myF.format(fca/SWF));
+                     		currency = "SWF";
+			break;
+			case "HKD":
+				System.out.println(fca + " HKD to GBP = " + myF.format(fca/HKD));
+                    		currency = "HKD"; 			
+                    	break;
+			case "JAY":
+				System.out.println(fca + " JAY to GBP = " + myF.format(fca/JAY));
+                    		currency = "JAY";			
+                    	break;
+			case "NZD":
+				System.out.println(fca + " NZD to GBP = " + myF.format(fca/NZD));
+                    		currency = "NZD";
+			break;
+		   }
+          	double commission = 0.03*fca;
+          	System.out.println("3% commission charge (" + currency +") of; " + myF.format(commission));	   
+       	} 
+}

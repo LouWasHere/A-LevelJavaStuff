@@ -1,0 +1,234 @@
+import java.io.*;
+import java.util.ArrayList;
+public class MyPizzaProgram{
+	
+	private ArrayList<Pizza> myOrder = new ArrayList<Pizza>();
+	static BufferedReader y = new BufferedReader(new InputStreamReader(System.in));	
+	
+    	public static void main(String[] args){
+		MyPizzaProgram myOrderObj = new MyPizzaProgram(); //create an object from the class
+		while(true){ //an infinite loop
+			try{ 
+				System.out.println("\n*******************************");
+                 		System.out.println("*--->Please choose an OPTION; *");				 
+				System.out.println("* A) Add Pizza                *");	
+				System.out.println("* B) Show Pizza Order         *");	
+				System.out.println("* C) Edit Pizza               *");	
+				System.out.println("* D) Delete Pizza             *");	
+				System.out.println("*******************************");	
+				String myChoice = y.readLine();
+				myChoice = myChoice.trim();
+		         	myChoice = myChoice.toUpperCase();
+				switch(myChoice){
+					case "A":
+						myOrderObj.addPizza();
+					break;
+					case "B":
+						myOrderObj.showPizzas();
+					break;
+					case "C":
+						myOrderObj.editPizza();
+					break;
+					case "D":
+						myOrderObj.deletePizza();
+					break;
+					default:
+						System.out.println("\n!----Invalid Option----!");
+					break;
+				}
+			}catch(IOException e){
+				System.out.println("Error: " + e);
+			}
+	    }
+	}
+	
+	public void addPizza(){
+		Pizza x = new Pizza();
+		x.toppings = this.getToppings();
+		x.size = this.getSize();
+		x.price = this.getPrice(x.toppings,x.size);
+		myOrder.add(x);
+		System.out.println("\n---->Pizza Added<----");
+	}
+
+	public void deletePizza(){
+		if(myOrder.size() > 0){
+			this.showPizzas();
+			System.out.println("\n**********************************");
+			System.out.println("---> Enter the pizza ID to DELETE;");
+			System.out.println("**********************************");
+			int pizza_id = 0;
+			try{
+				pizza_id = Integer.parseInt(y.readLine());
+			}catch(IOException e){
+			     	System.out.println("Error: " + e);
+			}
+			myOrder.remove(pizza_id-1);
+		}else{
+			System.out.println("No Pizzas have been added yet");
+		}
+	}
+
+	public void showPizzas(){
+		if(myOrder.size() > 0){
+			int z = 1;
+			double total = 0;
+			System.out.println("\n**********************************");
+			System.out.println("---> Your Pizza ORDER;\n");
+
+			for(Pizza myItem : myOrder){
+				System.out.println("\n------ Pizza Order ID: " + z + " ------\n");
+				System.out.println("Topping: " + myItem.toppings);
+				System.out.println("Size: " + myItem.size);
+				System.out.println("Price: " + myItem.price);
+				z+=1;
+				total = total + myItem.price;
+			}
+			System.out.println("-------------------------------");
+			System.out.println("---> TOTAL: " + total);
+			System.out.println("**********************************");
+		}else{
+			System.out.println("No Pizzas have been added yet");
+		}
+	}
+
+	public void editPizza(){
+		if(myOrder.size() > 0){
+			this.showPizzas();
+			System.out.println("\n**********************************");
+			System.out.println("---> Enter the pizza ID to EDIT;");
+			System.out.println("**********************************");
+			int pizza_id = 0;
+			try{
+				pizza_id = Integer.parseInt(y.readLine());
+			}catch(IOException e){
+			     System.out.println("Error: " + e);
+			}
+
+			System.out.println("\n***************************************************");
+			System.out.println("--->Please choose a new topping for pizza number " + pizza_id);
+			System.out.println("***************************************************");
+			myOrder.get(pizza_id-1).toppings = this.getToppings();
+			System.out.println("\n*************************************************");
+			System.out.println("--->Please choose a new size for pizza number " + pizza_id);
+			System.out.println("*************************************************");
+			myOrder.get(pizza_id-1).size = this.getSize();
+			myOrder.get(pizza_id-1).price = this.getPrice(myOrder.get(pizza_id-1).toppings,myOrder.get(pizza_id-1).size);
+		}else{
+			System.out.println("No Pizzas have been added yet");
+		}
+	
+	}
+
+	public String getToppings(){
+		String my_topping = null;
+		System.out.println("\n**************************************************************************");
+		System.out.println("----> Please choose a TOPPING;");
+		System.out.println("A) CHEESE & TOMATO - Italian-style six-cheese blend - 7.50");
+		System.out.println("B) BBQ CHICKEN - Chargrilled chicken, barbeque sauce, bacon, onions - 7.90");
+		System.out.println("C) MEAT FEAST - Ham, pepperoni, sausage, bacon, spicy beef - 8.10");
+		System.out.println("D) PIRI PIRI CHICKEN - Chilli pepper sauce, chargrilled chicken - 8.80");
+		System.out.println("E) HAWAII - Ham, pineapple, mushrooms  - 8.90");
+		System.out.println("F) MEDITERRANEAN - Chorizo, Italian-style sausage, jalapeno sausage - 9.50");
+		System.out.println("G) THE MEXICAN - Jalapeno peppers, red peppers, spicy beef, onions - 9.70");
+		System.out.println("H) THE WORKS - Pepperoni, sausage, ham, mushrooms, green peppers - 9.90");
+		System.out.println("**************************************************************************");
+		String myChoice = null;
+		try{
+			myChoice = y.readLine();
+		}catch(IOException e){
+			System.out.println("Error: " + e);
+		}
+		myChoice = myChoice.trim();
+		myChoice = myChoice.toUpperCase();
+
+		switch(myChoice){
+			case "A":
+				my_topping = "Cheese & Tomato";
+			break;
+			case "B":
+				my_topping = "BBQ Chicken";
+			break;
+			case "C":
+				my_topping = "Meat Feast";
+			break;
+			case "D":
+				my_topping = "PIRI PIRI CHICKEN";
+			break;
+			case "E":
+				my_topping = "HAWAII";
+			break;
+			case "F":
+				my_topping = "MEDITERRANEAN";
+			break;
+			case "G":
+				my_topping = "THE MEXICAN";
+			break;
+			case "H":
+				my_topping = "THE WORKS";
+			break;
+		}
+		return my_topping;
+	}
+
+	public char getSize(){
+		char mySize;
+		System.out.println("\n***************************");
+		System.out.println("----> Please choose a size;");
+		System.out.println("S - 5 slices");
+		System.out.println("M - 10 slices");
+		System.out.println("L - 15 slices");
+		System.out.println("***************************");
+
+		String myChoice = null;
+		try{
+			myChoice = y.readLine();
+		}catch(IOException e){
+			System.out.println("Error: " + e);
+		}
+		myChoice = myChoice.toUpperCase();
+		mySize = myChoice.charAt(0);
+		return mySize;
+	}
+
+	public double getPrice(String a_topping, char a_size){
+		double myPrice = 0;
+		double topping_price = 0;
+		switch(a_topping){
+			case "A":
+				topping_price = 1.35;
+			break;
+			case "B":
+				topping_price = 2.05;
+			break;
+			case "C":
+				topping_price = 3.10;
+			break;
+			case "D":
+				topping_price = 1.90;
+			break;
+			case "E":
+				topping_price = 1.45;
+			break;
+			case "F":
+				topping_price = 1.70;
+			break;
+			case "G":
+				topping_price = 2.00;
+			break;
+			case "H":
+				topping_price = 2.15;
+			break;
+		}
+
+		if(a_size == 'S'){
+			myPrice = topping_price + 2;
+		}else if(a_size == 'M'){
+			myPrice = topping_price + 3;
+		}else if(a_size == 'L'){
+			myPrice = topping_price + 4;
+		}
+		return myPrice;
+	}
+}
+

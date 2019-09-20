@@ -1,0 +1,106 @@
+import java.util.Random;
+import java.io.*;
+public class MyWordGame{
+
+	private char[] wordArray;
+	private char[] letterSpaces;
+
+    	public static void main(String[] args){
+		MyWordGame myHangmanObj = new  MyWordGame();
+		BufferedReader y = new BufferedReader(new InputStreamReader(System.in));
+		int lives = 10;
+		System.out.print("Welcome to 'Guess that Word!';\n<----------------------------->\n\n");
+		myHangmanObj.generateWord();
+
+		while(myHangmanObj.isGameOver(myHangmanObj.letterSpaces)){
+		System.out.print("---> Please guess a letter; ");
+			for(int i = 0; i < myHangmanObj.letterSpaces.length;i++){
+				System.out.print(myHangmanObj.letterSpaces[i] + " ");
+			}
+
+			System.out.println("\n");
+			char myLetter;
+			String myInput= null;
+
+			try{ 
+				myInput = y.readLine();
+			}catch(IOException e){
+				System.out.println("Error: " + e);
+			}
+			myInput = myInput.toLowerCase();
+			myLetter = myInput.charAt(0);
+			   
+			if(myHangmanObj.checkLetters(myHangmanObj.wordArray,myLetter)){
+				myHangmanObj.letterSpaces = myHangmanObj.addLetters(myHangmanObj.wordArray, myHangmanObj.letterSpaces,myLetter);
+			}else{
+				lives = lives - 1;
+				if(lives == 0){
+					break;
+				}
+			}
+			System.out.println("\n ---- You have -> " + lives + " <- lives remaining ---- \n");   
+		}
+
+		if(lives > 0){
+			System.out.println("\n\n=============== CONGRATULATIONS - YOU GOT IT! ===============\n");
+			System.out.print("The magic word was: ");
+			for(int i = 0; i < myHangmanObj.letterSpaces.length;i++){
+				System.out.print(myHangmanObj.letterSpaces[i] + " ");
+			}
+			System.out.println("\n=============================================================\n\n");
+		}else{
+			System.out.println("\n=============================================================");
+			System.out.println("\n========================= GAME OVER =========================");
+			System.out.println("\n=============================================================");
+		}
+	}
+	
+	public char[] addLetters(char[] word, char[] letterBlanks, char guessedLetter){
+		for(int x = 0; x < word.length;x++){
+			if(word[x]==guessedLetter){
+				letterBlanks[x] = guessedLetter;
+			}
+		}
+		return letterBlanks;
+	}
+	
+	public boolean isGameOver(char[] letterBlanks){
+		for(int x = 0; x < letterBlanks.length;x++){
+			if(letterBlanks[x]=='_'){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public boolean checkLetters(char[] word, char guessedLetter){
+		for(int x = 0; x < word.length;x++){
+			if(word[x]==guessedLetter){
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public void generateWord(){
+		Random rand = new Random();
+            	int num = rand.nextInt(5) + 1;
+
+		if(num == 1){
+			wordArray = new char[] {'e','d','u','c','a','t','i','o','n'};
+		}else if(num == 2){
+			wordArray = new char[] {'p','r','o','g','r','a','m','m','i','n','g'};
+		}else if(num == 3){
+			wordArray = new char[] {'e','l','e','p','h','a','n','t'};
+		}else if(num == 4){
+			wordArray = new char[] {'b','o','o','k'};
+		}else if(num == 5){
+			wordArray = new char[] {'j','u','r','a','s','s','i','c'};
+		}
+		letterSpaces = new char[wordArray.length];
+
+		for(int i = 0; i < wordArray.length; i++){
+			letterSpaces[i] = '_';
+		}
+	}	
+}

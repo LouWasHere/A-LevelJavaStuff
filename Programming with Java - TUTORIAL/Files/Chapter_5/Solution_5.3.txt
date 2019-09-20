@@ -1,0 +1,31 @@
+import java.io.*;
+public class OddsAndEvens{
+	public static void main(String[] args){
+           
+		int myStartPoint;
+           	int myEndPoint;
+           	String myNumber = null;
+           	BufferedReader x = new BufferedReader(new InputStreamReader(System.in));
+
+           	System.out.println("Enter an odd start point between: 1-100"); 
+           	try{   
+               		myNumber = x.readLine();
+           	}catch(IOException e){
+              		System.out.println("Error: " + e);
+           	}
+		myStartPoint = Integer.parseInt(myNumber);
+
+           	System.out.println("Enter the end point: 1-100"); 
+           	try{   
+               		myNumber = x.readLine();
+           	}catch(IOException e){
+              		System.out.println("Error: " + e);
+           	}
+		myEndPoint = Integer.parseInt(myNumber);  
+
+           	System.out.println("ODDS:");
+	    	for(int i= myStartPoint; i< (myEndPoint+1); i=i+2){
+              		System.out.println(i);
+           	}
+      }
+}

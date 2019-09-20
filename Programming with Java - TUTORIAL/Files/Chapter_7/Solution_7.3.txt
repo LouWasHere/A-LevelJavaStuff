@@ -1,0 +1,107 @@
+import java.io.*;
+public class ReturnOfTheArea {
+    	public static void main(String[] args){
+	 	double myArea = 0;
+	 	String input = null;
+	 	BufferedReader x = new BufferedReader(new InputStreamReader(System.in));	
+	 	ReturnOfTheArea myAreaApp = new  ReturnOfTheArea ();
+		
+	 	System.out.println("Choose a shape:");    
+        	System.out.println("(A) Square");
+        	System.out.println("(B) Rectangle");   
+	 	System.out.println("(C) Triangle");
+        	System.out.println("(D) Trapezium");   
+	 	try{
+             		input = x.readLine();
+        	}catch(IOException e){
+             		System.out.println("Error: " + e);
+        	}
+
+	 	switch(input){
+			case "A":
+				System.out.println("\n----> SQUARE <----"); 
+				System.out.println("Enter length in cm:"); 
+				try{
+					input = x.readLine();
+				}catch(IOException e){
+					System.out.println("Error: " + e);
+				}
+				double myLength = Double.parseDouble(input);
+				myArea = myAreaApp.mySquareArea(myLength);			
+			break;
+			case "B":
+				System.out.println("\n----> RECTANGLE <----"); 
+				double myLength2 = 0;
+				double myWidth = 0;
+				try{
+				    	System.out.println("Enter length in cm:"); 
+					input = x.readLine();
+					myLength2 = Double.parseDouble(input);
+					System.out.println("Enter width in cm:"); 
+					input = x.readLine();
+					myWidth = Double.parseDouble(input);
+				}catch(IOException e){
+					System.out.println("Error: " + e);
+				}
+				myArea = myAreaApp.myRectangleArea(myLength2, myWidth);			
+			break;
+			case "C":
+				System.out.println("\n----> TRIANGLE <----"); 
+				double myBase = 0;
+				double myHeight = 0;
+				try{
+				    	System.out.println("Enter triangle base in cm:"); 
+					input = x.readLine();
+					myBase = Double.parseDouble(input);
+					System.out.println("Enter triangle height in cm:"); 
+					input = x.readLine();
+					myHeight = Double.parseDouble(input);
+				}catch(IOException e){
+					System.out.println("Error: " + e);
+				}
+				myArea = myAreaApp.myTriangleArea(myBase, myHeight);	
+			break;
+			case "D":
+				System.out.println("\n----> TRAPEZIUM <----"); 
+				double myTop = 0;
+				double myHeight2 = 0;
+				double myBottom = 0;
+				try{
+				    	System.out.println("Enter the top length in cm:"); 
+					input = x.readLine();
+					myTop = Double.parseDouble(input);
+					System.out.println("Enter the bottom length in cm:"); 
+					input = x.readLine();
+					myBottom = Double.parseDouble(input);
+					System.out.println("Enter the height in cm:"); 
+					input = x.readLine();
+					myHeight2 = Double.parseDouble(input);
+				}catch(IOException e){
+					System.out.println("Error: " + e);
+				}
+				myArea = myAreaApp.myTrapeziumArea(myBottom, myTop,myHeight2);	
+			break;		
+		} 
+		System.out.println("\n----> The Area of the shape is: " + myArea + "cm <----"); 
+    	}
+	
+    	public double mySquareArea(double length){
+          	double area =  length * length;
+          	return area;
+    	}
+
+    	public double myRectangleArea(double length, double width){
+          	double area =  length * width;
+          	return area;
+    	}
+
+   	public double myTriangleArea(double base, double height){
+          	double area =  0.5 * base * height;
+          	return area;
+    	} 
+       
+    	public double myTrapeziumArea(double bottom, double top, double height){
+          	double area =  0.5 * (bottom+top)*height;
+          	return area;
+    	}
+}

@@ -1,0 +1,14 @@
+public class MyTriangle{
+	public static void main(String[] args){
+
+          	int z = 2;
+
+          	for(int i=1; i<6; i++){
+              		for(int y=1; y<z; y++){
+                  		System.out.print("* ");
+              		}       
+           		System.out.println();
+           		z=z+1;
+           	}
+      	}
+}

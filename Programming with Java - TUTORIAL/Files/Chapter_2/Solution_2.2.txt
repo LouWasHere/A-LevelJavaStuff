@@ -1,0 +1,8 @@
+public class MyRectanglePerimeter {
+	public static void main(String[] args){
+        	short length = 23;
+             	short width = 30;
+             	int perimeter = (length*2)+(width*2); 
+             	System.out.println("Perimeter: " + perimeter);
+	}
+}

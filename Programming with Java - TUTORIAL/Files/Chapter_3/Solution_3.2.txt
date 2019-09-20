@@ -1,0 +1,8 @@
+public class UsingIfs{
+	public static void main(String[] args){
+	    	int z = 15;
+           	if(z >= 10 && z <= 20){
+                	System.out.println("Z is between 10 and 20");
+           	}
+	}
+}
