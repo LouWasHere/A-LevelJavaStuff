@@ -39,7 +39,8 @@ public class TheCalculator
                     scanner.nextLine();
                     System.out.println("Enter a valid numerical value");
                 }
-            }while(!wenttocatch);
+            }
+        while(!wenttocatch);
         return input;
     }
     public static void main(String[] args) 

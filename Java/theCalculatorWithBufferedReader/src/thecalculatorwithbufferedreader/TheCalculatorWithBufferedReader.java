@@ -11,23 +11,28 @@ public class TheCalculatorWithBufferedReader
         {
             double d = Double.parseDouble(strNum);
         } 
-        catch (NumberFormatException | NullPointerException nfe) {
-        return false;
+        catch (NumberFormatException | NullPointerException nfe)
+        {
+            return false;
+        }
+        return true;
     }
-    return true;
-    }
+    
     public static double addNumbers(double numberOne, double numberTwo)
     {
         return numberOne+numberTwo;
     }
+    
     public static double minusNumbers(double numberOne, double numberTwo)
     {
         return numberOne-numberTwo;
     }
+    
     public static double timesNumbers(double numberOne, double numberTwo)
     {
         return numberOne*numberTwo;
     }
+    
     public static double divideNumbers(double numberOne, double numberTwo)
     {
         double answer = 0;
@@ -41,6 +46,7 @@ public class TheCalculatorWithBufferedReader
         }
         return answer;
     }
+    
     public static double inputNumbers()
     {
         boolean isNumeric = true;
@@ -70,19 +76,21 @@ public class TheCalculatorWithBufferedReader
         inputDouble = Double.parseDouble(inputString);
         return inputDouble;
     }
+    
     public static void main(String[] args) throws IOException 
     {
         boolean loop = true;
         double answer = 0;
         while(loop == true)
         {
+            //User sets the numeric variables, calling the inputNumbers() function.
             System.out.println("Please enter the first number.");
-            DecimalFormat format = new DecimalFormat("##.00");
             double firstNumber = inputNumbers();
             System.out.println("Please enter the second number.");
             double secondNumber = inputNumbers();
             System.out.println("Please enter the function (+, -, * or /).");
-            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            //User sets the function of the calculator.
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in)); 
             char character = (char)br.read();
             switch (character) 
             {
