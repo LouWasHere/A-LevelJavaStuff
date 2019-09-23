@@ -49,7 +49,8 @@ public class TheCalculatorWithBufferedReader
     
     public static double inputNumbers()
     {
-        boolean isNumeric = true;
+        boolean isNumeric;
+        isNumeric = false;
         String inputString = null;
         double inputDouble;
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
