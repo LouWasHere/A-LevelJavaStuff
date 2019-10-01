@@ -65,7 +65,7 @@ public abstract class Shape {
                     if (shape instanceof Cylinder)
                     {// Print out the Cylinder attributes 
                         System.out.println("Volume : " + ((Cylinder)shape).Volume());
-                        System.out.println("Depth : " + ((Cylinder)shape).Volume());
+                        System.out.println("Depth : " + ((Cylinder)shape).Depth());
                     }       
                 }
         }
