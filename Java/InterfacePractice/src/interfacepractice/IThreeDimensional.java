@@ -11,7 +11,6 @@ package interfacepractice;
  */
 public interface IThreeDimensional extends Shape {
     double Depth();
-    
     default double Volume()
     {
         return Area()*Depth();

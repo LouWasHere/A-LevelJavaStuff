@@ -12,6 +12,7 @@ package interfacepractice;
 public class Cuboid extends Rectangle implements IThreeDimensional
 {
     private int depth;
+    private double surfaceArea;
     
     public Cuboid()
     {   
@@ -22,11 +23,19 @@ public class Cuboid extends Rectangle implements IThreeDimensional
     {
         super(length, width);
         this.depth = depth;
+        double area = length * width;
+        double sideArea = width * depth;
+        this.surfaceArea = (area+area+sideArea+sideArea+sideArea+sideArea);
     }
     
     @Override
     public double Depth()
     {
         return (depth);
+    }
+    
+    public double SurfaceArea()
+    {
+        return (surfaceArea);
     }
 }

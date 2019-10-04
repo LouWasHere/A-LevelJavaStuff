@@ -9,20 +9,20 @@ package interfacepractice;
  *
  * @author l-bishop
  */
-public class Rectangle implements Polygon {
-    int length = 0;
-    private int width = 0;
+public class Parallelogram implements Polygon {
+    private int base = 0;
+    private int height = 0;
     
-    public Rectangle()
+    public Parallelogram()
     {   
-        System.out.println("Rectangle: " + this.toString());        
+        System.out.println("Parallelogram: " + this.toString());        
     }
     
-    public Rectangle(int length, int width)
+    public Parallelogram(int base, int height)
     {   
         this();
-        this.length = length;
-        this.width = width;
+        this.base = base;
+        this.height = height;
     }
     
     @Override
@@ -34,16 +34,16 @@ public class Rectangle implements Polygon {
     @Override
     public double Area()
     {
-        return length * width;        
+        return base * height;        
     }
     
-    public int Length()
+    public int Base()
     {
-        return length;        
+        return base;        
     }
     
-    public int Width()
+    public int Height()
     {
-        return width;        
+        return height;        
     }
 }

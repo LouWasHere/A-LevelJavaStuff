@@ -10,26 +10,28 @@ package interfacepractice;
  * @author l-bishop
  */
 public class Circle implements Shape {
-    private int radius = 0;
+    private double radius = 0;
+    private double area = 0;
     
     public Circle()
     {   
         System.out.println("Circle: " + this.toString());        
     }
     
-    public Circle(int radius)
+    public Circle(double radius)
     {   
         this();
         this.radius = radius;
+        this.area = 3.14*radius*radius;  
     }
     
     @Override
     public double Area()
     {
-        return 3.14*radius*radius;     
+        return area;
     }
     
-    public int Radius()
+    public double Radius()
     {
         return radius;        
     }

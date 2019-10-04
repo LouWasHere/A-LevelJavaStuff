@@ -12,16 +12,18 @@ package interfacepractice;
 public class Cylinder extends Circle implements IThreeDimensional 
 {
     private int depth;
+    private double surfaceArea;
     
     public Cylinder()
     {   
         System.out.println("Cylinder: " + this.toString());        
     }
     
-    public Cylinder(int radius, int depth)
+    public Cylinder(double radius, int depth)
     {
         super(radius);
         this.depth = depth;
+        this.surfaceArea = (3.14*Radius()*Radius())*((3.14*(Radius()+Radius()))*depth);
     }
     
     @Override
@@ -34,5 +36,10 @@ public class Cylinder extends Circle implements IThreeDimensional
     public double Depth()
     {
         return (depth);
+    }
+    
+    public double SurfaceArea()
+    {
+        return (surfaceArea);
     }
 }
