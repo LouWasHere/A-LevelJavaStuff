@@ -20,13 +20,13 @@ public class Main {
     
     public static void main(String[] args) {
         
-        Rectangle rectangle = new Rectangle(1,2);    
+        Rectangle rectangle = new Rectangle(5,5);    
         
-        Triangle triangle = new Triangle(1,2);
+        Triangle triangle = new Triangle(5,5);
         
         Circle circle = new Circle(5);
         
-        Cuboid cuboid = new Cuboid(1,2,3);
+        Cuboid cuboid = new Cuboid(5,5,5);
         
         Cylinder cylinder = new Cylinder(5, 5);
         
