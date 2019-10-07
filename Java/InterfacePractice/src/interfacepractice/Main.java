@@ -1,25 +1,82 @@
 package interfacepractice;
 
 import java.util.ArrayList;
-
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.*;
+import java.util.*;
 public class Main {
     
-    public static void bubbleSort(Shape arr[]) 
+    public static void bubbleSort(Shape arr[])
     { 
         int n = arr.length; 
-        for (int i = 0; i < n-1; i++) 
+        for (int i = 0; i < n-1; i++)
+        {
             for (int j = 0; j < n-i-1; j++) 
+            {
                 if (arr[j].Area() > arr[j+1].Area()) 
                 { 
                     // swap arr[j+1] and arr[i] 
                     Shape temp = arr[j]; 
                     arr[j] = arr[j+1]; 
                     arr[j+1] = temp; 
-                } 
-    } 
+                }
+            }
+        }
+    }
     
-    public static void main(String[] args) {
-        
+    public static ArrayList<String> readFile(String address)
+    {
+        // create an empty array to store the text file in
+        ArrayList<String> lines = new ArrayList<String>();       
+        try
+        {
+            // read the file
+            BufferedReader br = new BufferedReader(new FileReader("output.txt"));
+            
+            // fill the array with the text file
+            String line = br.readLine();
+            while (line != null)
+            {
+               lines.add(line);
+               line = br.readLine();
+            }
+        }
+        catch(Exception e)
+        {
+            System.out.println("Failed to read from file: " + "output.txt");
+        }
+        return lines;
+    }
+    
+    public static void writeFile(String address, ArrayList<String> content)
+    {
+        try
+        { 
+            // create the file
+            File file = new File(address);
+            file.createNewFile();
+            PrintWriter printObj = new PrintWriter(file);
+
+            // write the content into the file
+            for(int i = 0; i < content.size(); i++)
+            {
+                printObj.println(content.get(i));
+            }
+            // close stream
+            printObj.close();
+        } 
+        // if the file was not found, alert the user    
+        catch (Exception e)
+        {
+            System.out.println("Failed to write to file: " + address);
+        }
+
+    }
+    
+    public static void main(String[] args) 
+    {
         Rectangle rectangle = new Rectangle(5,5);    
         
         Triangle triangle = new Triangle(5,5);
@@ -76,6 +133,20 @@ public class Main {
                 System.out.println("\nParallelogram:\nBase: " + parallelogram.Base() + "\nHeight: " + parallelogram.Height() + "\nArea: " + parallelogram.Area());
             }
         }
+        ArrayList<String> outToFile = new ArrayList<String>();
+        outToFile.add(0,"This");
+        outToFile.add(1,"is");
+        outToFile.add(2,"a");
+        outToFile.add(3,"file");
+        outToFile.add(4,"that");
+        outToFile.add(5,"has");
+        outToFile.add(6,"been");
+        outToFile.add(7,"output");
+        outToFile.add(8,"to.");
+        writeFile("output.txt",outToFile);
+        
+        ArrayList<String> readFromFile = new ArrayList<String>();
+        readFromFile = readFile("output.txt");
+        System.out.println(readFromFile.toString());
     }
 }
-    
