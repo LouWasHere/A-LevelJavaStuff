@@ -1,6 +1,5 @@
 package thecalculatorwithbufferedreader;
 import java.io.*;
-import java.text.DecimalFormat;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;   
 public class TheCalculatorWithBufferedReader 

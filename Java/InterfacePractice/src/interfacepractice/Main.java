@@ -144,7 +144,6 @@ public class Main {
         outToFile.add(7,"output");
         outToFile.add(8,"to.");
         writeFile("output.txt",outToFile);
-        
         ArrayList<String> readFromFile = new ArrayList<String>();
         readFromFile = readFile("output.txt");
         System.out.println(readFromFile.toString());
