@@ -11,10 +11,11 @@ public class TheCalculatorWithBufferedReader
         {
             double d = Double.parseDouble(strNum);
         } 
-        catch (NumberFormatException | NullPointerException nfe) {
+        catch (NumberFormatException | NullPointerException nfe)
+        {
         return false;
-    }
-    return true;
+        }
+        return true;
     }
     public static double addNumbers(double numberOne, double numberTwo)
     {
@@ -43,9 +44,9 @@ public class TheCalculatorWithBufferedReader
     }
     public static double inputNumbers()
     {
-        boolean isNumeric = true;
+        boolean isNumeric = false;
         String inputString = null;
-        double inputDouble;
+        double inputDouble = 0;
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         while(isNumeric == false)
         {
@@ -53,21 +54,23 @@ public class TheCalculatorWithBufferedReader
             {
                 System.out.println("Please enter a valid interger.");
                 inputString = br.readLine();
+                if(isNumeric(inputString) == false)
+                {
+                    System.out.println("Doofus. That wasn't a number, was it?");
+                }
+                else
+                {
+                    isNumeric = true;
+                    inputDouble = Double.parseDouble(inputString);
+                }
+                
             }
             catch (IOException e)
             {
                 System.out.println("Error: " + e);
             }
-            if(isNumeric(inputString) == false)
-            {
-                System.out.println("Doofus. That wasn't a number, was it?");
-            }
-            else
-            {
-                isNumeric = true;
-            }
         }
-        inputDouble = Double.parseDouble(inputString);
+        
         return inputDouble;
     }
     public static void main(String[] args) throws IOException 
@@ -76,8 +79,8 @@ public class TheCalculatorWithBufferedReader
         double answer = 0;
         while(loop == true)
         {
-            System.out.println("Please enter the first number.");
             DecimalFormat format = new DecimalFormat("##.00");
+            System.out.println("Please enter the first number.");
             double firstNumber = inputNumbers();
             System.out.println("Please enter the second number.");
             double secondNumber = inputNumbers();
