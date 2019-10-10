@@ -2,4 +2,18 @@
 /Java/theCalculator/build/
 /Java/theCalculatorWithBufferedReader/nbproject/private/
 /Java/theCalculatorWithBufferedReader/build/
+<<<<<<< HEAD
 /Java/hangmanTask/nbproject/private/
+=======
+/Java/dateClassPractice/nbproject/private/
+/Java/dateClassPractice/build/
+/Java/dateClassPractice/dist/
+/Java/OOPPractice/nbproject/private/
+/Java/JavaApplication8/nbproject/private/
+/Java/InterfacePractice/nbproject/private/
+/Java/InterfacePractice/build/
+/Java/theCalculator/dist/
+/Java/horoscopeAssesment/nbproject/private/
+/Java/horoscopeAssesment/build/
+/Java/horoscopeAssesment/dist/
+>>>>>>> dc54e6856be6fa5d49ce0e15dfdb047dced1702c
