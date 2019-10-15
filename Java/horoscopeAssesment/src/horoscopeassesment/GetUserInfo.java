@@ -116,8 +116,24 @@ public class GetUserInfo
                         int year = Integer.parseInt(inputStringYear);
                         int month = Integer.parseInt(inputStringMonth);
                         int day = Integer.parseInt(inputStringDay);
-                        dateOfBirth = LocalDate.of(year, month, day);
-                        loop = false;
+                        boolean error = false;
+                        try
+                        {
+                            dateOfBirth = LocalDate.of(year, month, day);
+                        }
+                        catch(DateTimeException e)
+                        {
+                            System.out.println("So... That didn't work. The date wasn't valid! Try again.");  
+                            error = true;
+                        }
+                        if(error == true)
+                        {
+                            loop = true;                      
+                        }
+                        else
+                        {
+                            loop = false;
+                        }
                     }
                 }
             }
