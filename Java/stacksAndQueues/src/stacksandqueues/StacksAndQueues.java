@@ -23,6 +23,24 @@ public class StacksAndQueues
         System.out.println(stack.isFull());
         System.out.println(stack.pop()+" has been popped from the stack.");
         
+        LinearQueue linearQueue = new LinearQueue();
+        System.out.println(linearQueue.isEmpty());
+        linearQueue.add(1);
+        linearQueue.add(2);
+        System.out.println(linearQueue.isEmpty());
+        linearQueue.add(3);
+        linearQueue.remove();
+        linearQueue.add(4);
+        System.out.println(linearQueue.isFull());
+        linearQueue.add(5);
+        System.out.println(linearQueue.isFull());
+        linearQueue.remove();
+        linearQueue.remove();
+        linearQueue.remove();
+
+        System.out.println(linearQueue.isEmpty());
+        
+        
     }
     
 }
