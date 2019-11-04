@@ -17,10 +17,12 @@ public class CircularQueue
     
     private int endPointer = -1;
     
+    private int currentSize = 0;
+    
     public boolean isEmpty()
     {
         boolean empty = false;
-        if(frontPointer == -1 && endPointer == -1)
+        if(currentSize == 0)
         {
             empty = true;
         }
@@ -30,7 +32,7 @@ public class CircularQueue
     public boolean isFull()
     {
         boolean full = false;
-        if(endPointer == 3)
+        if(currentSize == intCircularQueue.length)
         {
             full = true;
         }
@@ -49,21 +51,30 @@ public class CircularQueue
             {
                 frontPointer++;
             }
-            endPointer++;
+            if(endPointer == intCircularQueue.length)
+            {
+                endPointer = 0;
+            }
+            else
+            {
+                endPointer++;
+            }
             intCircularQueue[endPointer] = value;
+            currentSize++;
         }
     }
     
     public int peek()
     {
-        return intLinearQueue[frontPointer];
+        return intCircularQueue[frontPointer];
     }
     
     public int remove()
     {
-        int poppedValue = intLinearQueue[frontPointer];
-        intLinearQueue[frontPointer] = 0;
-        frontPointer+=1;
+        int poppedValue = intCircularQueue[frontPointer];
+        intCircularQueue[frontPointer] = 0;
+        frontPointer++;
+        currentSize--;
         return poppedValue;
     }
 }

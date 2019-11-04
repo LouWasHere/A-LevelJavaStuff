@@ -17,24 +17,30 @@ public class LinearQueue
     
     private int endPointer = -1;
     
+    private int currentSize = 0;
+    
     public boolean isEmpty()
     {
-        boolean empty = false;
-        if(frontPointer == -1 && endPointer == -1)
+        if(currentSize == 0)
         {
-            empty = true;
+            return true;
         }
-        return empty;
+        else
+        {
+            return false;
+        }
     }
     
     public boolean isFull()
     {
-        boolean full = false;
-        if(endPointer == 3)
+        if(currentSize == intLinearQueue.length || frontPointer == 4)
         {
-            full = true;
+            return true;
         }
-        return full;
+        else
+        {
+            return false;
+        }
     }
     
     public void add(int value)
@@ -51,6 +57,7 @@ public class LinearQueue
             }
             endPointer++;
             intLinearQueue[endPointer] = value;
+            currentSize++;
         }
     }
     
@@ -64,6 +71,7 @@ public class LinearQueue
         int poppedValue = intLinearQueue[frontPointer];
         intLinearQueue[frontPointer] = 0;
         frontPointer+=1;
+        currentSize--;
         return poppedValue;
     }
 }
