@@ -84,4 +84,25 @@ public class CircularQueue
         currentSize--;
         return poppedValue;
     }
+    
+    public int pointerValue(String pointer)
+    {
+        if(pointer.equals("front"))
+        {
+            return frontPointer;
+        }
+        if(pointer.equals("end"))
+        {
+            return endPointer;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    
+    public int returnSize()
+    {
+        return currentSize;
+    }
 }

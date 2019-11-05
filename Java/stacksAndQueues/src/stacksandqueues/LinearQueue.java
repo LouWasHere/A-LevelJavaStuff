@@ -73,4 +73,20 @@ public class LinearQueue
         frontPointer+=1;
         return poppedValue;
     }
+    
+    public int pointerValue(String pointer)
+    {
+        if(pointer.equals("front"))
+        {
+            return frontPointer;
+        }
+        if(pointer.equals("end"))
+        {
+            return endPointer;
+        }
+        else
+        {
+            return 0;
+        }
+    }
 }
