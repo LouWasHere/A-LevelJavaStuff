@@ -226,8 +226,8 @@ public class CircularQueueJUnitTest
         circularQueue.remove();
         circularQueue.remove();
         circularQueue.remove();
-        assertTrue(circularQueue.pointerValue("front") == 2);
-        assertTrue(circularQueue.pointerValue("end") == 1);
+        assertTrue(circularQueue.pointerValue("front") == -1);
+        assertTrue(circularQueue.pointerValue("end") == -1);
         assertTrue(circularQueue.returnSize() == 0);
     }   
     @Test

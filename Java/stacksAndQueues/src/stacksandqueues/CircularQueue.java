@@ -22,17 +22,17 @@ public class CircularQueue
     public boolean isEmpty()
     {
         boolean empty = false;
-        if(currentSize == 0)
+        if((endPointer == -1 && frontPointer == -1))
         {
             empty = true;
         }
         return empty;
-    }
+    } 
     
     public boolean isFull()
     {
         boolean full = false;
-        if(currentSize == intCircularQueue.length)
+        if(frontPointer - endPointer == 1 || frontPointer - endPointer == -3)
         {
             full = true;
         }
@@ -69,9 +69,8 @@ public class CircularQueue
         return intCircularQueue[frontPointer];
     }
     
-    public int remove()
+    public void remove()
     {
-        int poppedValue = intCircularQueue[frontPointer];
         intCircularQueue[frontPointer] = 0;
         if(frontPointer == intCircularQueue.length -1)
         {
@@ -82,7 +81,11 @@ public class CircularQueue
             frontPointer++;
         }
         currentSize--;
-        return poppedValue;
+        if(intCircularQueue[frontPointer] == 0)
+        {
+            frontPointer = -1;
+            endPointer = -1;
+        }
     }
     
     public int pointerValue(String pointer)
