@@ -41,6 +41,24 @@ public class StacksAndQueues
         linearQueue.remove();
         System.out.println(linearQueue.isEmpty());
         
+        System.out.println("\n");
+        
+        CircularQueue circularQueue = new CircularQueue();
+        circularQueue.add(1);
+        circularQueue.add(2);
+        circularQueue.add(3);
+        circularQueue.remove();
+        circularQueue.remove();
+        circularQueue.add(4);
+        circularQueue.add(5);
+        System.out.println(circularQueue.isFull());
+        circularQueue.add(6);
+        System.out.println(circularQueue.isFull());
+        circularQueue.remove();
+        circularQueue.remove();
+        circularQueue.remove();
+        circularQueue.remove();
+        System.out.println(circularQueue.isEmpty());
         
     }
     

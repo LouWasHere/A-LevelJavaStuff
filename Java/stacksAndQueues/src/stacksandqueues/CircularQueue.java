@@ -49,9 +49,9 @@ public class CircularQueue
         {
             if(frontPointer == -1)
             {
-                frontPointer++;
+                frontPointer = 0;
             }
-            if(endPointer == intCircularQueue.length)
+            if(endPointer == -1 || endPointer == intCircularQueue.length -1)
             {
                 endPointer = 0;
             }
@@ -73,7 +73,14 @@ public class CircularQueue
     {
         int poppedValue = intCircularQueue[frontPointer];
         intCircularQueue[frontPointer] = 0;
-        frontPointer++;
+        if(frontPointer == intCircularQueue.length -1)
+        {
+           frontPointer = 0; 
+        }
+        else
+        {
+            frontPointer++;
+        }
         currentSize--;
         return poppedValue;
     }

@@ -71,7 +71,6 @@ public class LinearQueue
         int poppedValue = intLinearQueue[frontPointer];
         intLinearQueue[frontPointer] = 0;
         frontPointer+=1;
-        currentSize--;
         return poppedValue;
     }
 }
