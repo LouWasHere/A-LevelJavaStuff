@@ -9,19 +9,42 @@ import java.util.*;
 
 public class HashingPotatoes
 {
-
-    public static void main(String[] args) 
+    ArrayList<Integer> values = new ArrayList<>();
+    ArrayList<Integer> encodedValues = new ArrayList<>();
+    ArrayList[] hashValues = new ArrayList[11];
+    
+    public void setValues(int i1,int i2,int i3,int i4,int i5)
     {
-        ArrayList<Integer> values = new ArrayList<>();
-        values.add(78);
-        values.add(55);
-        values.add(34);
-        values.add(19);
-        values.add(29);
-        
-        ArrayList<String>[][] hashTables = new ArrayList[10][10];
-       // hashTables[0][0] = new ArrayList<>();
-        hashTables[0][0].add("test");
+        values.add(i1);
+        values.add(i2);
+        values.add(i3);
+        values.add(i4);
+        values.add(i5);
     }
     
+    public void createArrayOfArrayLists()
+    {
+        for (int i = 0; i <= 10; i++)
+        {
+            hashValues[i] = new ArrayList<>();
+        }
+    }
+    
+    public void encodeAndStore()
+    {
+        for(int i = 0; i <= values.size()-1; i++)
+        {
+            encodedValues.add(values.get(i) % 11);
+        }
+    }
+    
+    public void setEverythingIntoHashTable()
+    {
+        for (int i = 0; i <= values.size()-1; i++)
+        {
+            hashValues[encodedValues.get(i)].add(values.get(i));
+        }
+    }
+    
+
 }
