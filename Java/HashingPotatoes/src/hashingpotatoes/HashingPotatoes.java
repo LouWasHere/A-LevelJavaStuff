@@ -15,6 +15,7 @@ public class HashingPotatoes
     
     public void setValues(int i1,int i2,int i3,int i4,int i5)
     {
+        
         values.add(i1);
         values.add(i2);
         values.add(i3);
@@ -46,5 +47,28 @@ public class HashingPotatoes
         }
     }
     
-
+    public int returnValues(int index)
+    {
+        return values.get(index);
+    }
+    
+    public int returnEncodedValues(int index)
+    {
+        return encodedValues.get(index);
+    }
+    
+    public int returnValuesSize()
+    {
+        return values.size();
+    }
+    
+    public int returnEncodedValuesSize()
+    {
+        return values.size();
+    }
+    
+    public ArrayList returnHashTable(int index)
+    {
+        return hashValues[index];
+    }
 }
