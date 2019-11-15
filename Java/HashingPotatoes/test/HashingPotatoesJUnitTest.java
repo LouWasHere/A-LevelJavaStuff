@@ -53,6 +53,7 @@ public class HashingPotatoesJUnitTest
     @Test
     public void setValues()
     {
+        hash.createArrayOfArrayLists();
         hash.setValues(78,55,34,19,29);
         assertTrue(hash.returnValues(0) == 78);
         assertTrue(hash.returnValues(1) == 55);
@@ -64,6 +65,7 @@ public class HashingPotatoesJUnitTest
     @Test
     public void encodeAndStore()
     {
+        hash.createArrayOfArrayLists();
         hash.setValues(78,55,34,19,29);
         assertTrue(hash.returnValues(0) == 78);
         assertTrue(hash.returnValues(1) == 55);
@@ -81,6 +83,7 @@ public class HashingPotatoesJUnitTest
     @Test
     public void setEverythingIntoHashTable()
     {
+        hash.createArrayOfArrayLists();
         hash.setValues(78,55,34,19,29);
         assertTrue(hash.returnValues(0) == 78);
         assertTrue(hash.returnValues(1) == 55);
