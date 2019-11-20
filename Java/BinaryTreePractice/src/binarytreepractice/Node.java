@@ -10,13 +10,12 @@ class Node
     String desc;
     Node left;
     Node right;
-    Node parent;
     
-    public Node(String desc, Node left, Node right, Node parent) 
+    public Node(String desc) 
     {
        this.desc = desc;
        this.left = left;
        this.right = right;
-       this.parent = parent;
     }
+
 }

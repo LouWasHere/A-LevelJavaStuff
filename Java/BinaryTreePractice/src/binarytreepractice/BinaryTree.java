@@ -11,16 +11,58 @@ package binarytreepractice;
  */
 public class BinaryTree
 {
-    Node placeholder = new Node("Placeholder", null, null, null);
+    int elements = 0;
+    Node parent = null;
+    Boolean found = false;
+    Node root = null;
     
-    public void declareRoot(String value)
+    public void newNode(String value)
     {
-        Node root = new Node("Jim", placeholder, placeholder, placeholder);
-    }
-    
-    public void newNode(String value, String direction, Node parent)
-    {
-        
+        Boolean positionFound = false;
+        if(elements == 0)
+        {
+            root = new Node(value);
+            elements++;
+        }
+        else
+        {
+            Node newNode = new Node(value);
+            parent = root;
+            if(parent.desc.compareToIgnoreCase(value) >= 0)
+            {
+                found = false;
+                while(found==false)
+                {
+                    if(parent.right==null)
+                    {
+                        parent.right = newNode;
+                        found = true;
+                        elements++;
+                    }
+                    else
+                    {
+                        parent.right = parent;
+                    }
+                }
+            }
+            if(parent.desc.compareToIgnoreCase(value) < 0)
+            {
+                found = false;
+                while(found = false)
+                {
+                    if(parent.left==null)
+                    {
+                        parent.left = newNode;
+                        found = true;
+                        elements++;
+                    }
+                    else
+                    {
+                        parent.left = parent;
+                    }
+                }
+            }
+        }
     }
     
 }

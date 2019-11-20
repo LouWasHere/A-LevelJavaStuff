@@ -17,8 +17,8 @@ public class BinaryTreePractice {
     public static void main(String[] args) 
     {
         BinaryTree bt = new BinaryTree();
-        bt.declareRoot("Jim");
-        bt.newNode("Bob", "left", root);
+        bt.newNode("Jim");
+        bt.newNode("Bob");
     }
     
 }
