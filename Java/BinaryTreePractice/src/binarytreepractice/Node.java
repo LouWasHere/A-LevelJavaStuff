@@ -17,5 +17,19 @@ class Node
        this.left = left;
        this.right = right;
     }
-
+    
+    public String desc()
+    {
+        return desc;
+    }
+    
+    public Node left()
+    {
+        return left;
+    }
+    
+    public Node right()
+    {
+        return right;
+    }
 }

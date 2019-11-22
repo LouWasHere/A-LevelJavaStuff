@@ -19,6 +19,7 @@ public class BinaryTreePractice {
         BinaryTree bt = new BinaryTree();
         bt.newNode("Jim");
         bt.newNode("Bob");
+        bt.newNode("Dan");
     }
     
 }

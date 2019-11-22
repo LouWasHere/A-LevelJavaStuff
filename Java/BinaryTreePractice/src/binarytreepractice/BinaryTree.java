@@ -28,10 +28,10 @@ public class BinaryTree
         {
             Node newNode = new Node(value);
             parent = root;
-            if(parent.desc.compareToIgnoreCase(value) >= 0)
+            found = false;
+            while(found==false)
             {
-                found = false;
-                while(found==false)
+                if(parent.desc.compareToIgnoreCase(value) >= 0)
                 {
                     if(parent.right==null)
                     {
@@ -41,14 +41,10 @@ public class BinaryTree
                     }
                     else
                     {
-                        parent.right = parent;
+                        parent = parent.right;
                     }
                 }
-            }
-            if(parent.desc.compareToIgnoreCase(value) < 0)
-            {
-                found = false;
-                while(found = false)
+                else
                 {
                     if(parent.left==null)
                     {
@@ -58,7 +54,7 @@ public class BinaryTree
                     }
                     else
                     {
-                        parent.left = parent;
+                        parent = parent.left;
                     }
                 }
             }
