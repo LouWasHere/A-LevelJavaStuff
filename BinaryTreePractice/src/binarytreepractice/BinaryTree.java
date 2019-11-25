@@ -61,31 +61,4 @@ public class BinaryTree
         }
     }
     
-    public void preOrderTraversal()
-    {
-        System.out.println("Root: " + root.desc);
-        parent = root;
-        boolean end = false;
-        for(int i = 0; i<elements; i++)
-        {
-            while(end == false)
-            {
-                if(parent.left != null)
-                {
-                    System.out.println(parent.left.desc);
-                    parent = parent.left;
-                }
-                else if(parent.right != null)
-                {
-                    
-                }
-                else
-                {
-                    end = true;
-                }
-            }
-            
-        }
-    }
-    
 }

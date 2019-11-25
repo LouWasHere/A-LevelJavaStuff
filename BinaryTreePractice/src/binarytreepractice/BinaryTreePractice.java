@@ -24,7 +24,6 @@ public class BinaryTreePractice {
         bt.newNode("Jake");
         bt.newNode("Peter");
         bt.newNode("William");
-        bt.preOrderTraversal();
     }
     
 }
