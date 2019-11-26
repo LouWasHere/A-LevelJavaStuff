@@ -18,7 +18,6 @@ public class BinaryTree
     
     public void newNode(String value)
     {
-        Boolean positionFound = false;
         if(elements == 0)
         {
             root = new Node(value);
