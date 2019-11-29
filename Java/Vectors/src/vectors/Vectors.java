@@ -15,8 +15,6 @@ public class Vectors {
      */
     public static void main(String[] args) 
     {
-        System.out.println(IVector.add(new Vector(6,9), new Vector(7,3)).x());
-        System.out.println(IVector.add(new Vector(6,9), new Vector(7,3)).y());
 
     }    
 }

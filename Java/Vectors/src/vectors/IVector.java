@@ -12,12 +12,12 @@ import java.math.BigDecimal;
  * @author dw
  */
 public interface IVector extends Comparable<IVector>{
-    double x();
-    double y();    
+    BigDecimal x();
+    BigDecimal y();    
   
     static public IVector add(IVector a, IVector b) 
     {
-        return new Vector(a.x()+b.x() ,a.y()+b.y());
+        return new Vector(a.x().add(b.x()) ,a.y().add(b.y()));
     }
     
     static IVector multiply(double scalar, IVector a) {          
@@ -28,8 +28,9 @@ public interface IVector extends Comparable<IVector>{
         return a.x()*b.x()+a.y()*b.y();
     }
 
-    static IVector convexCombination(double scalara, IVector a, double scalarb, IVector b) {
-        return new Vector(0,0);
+    static IVector convexCombination(double scalara, IVector a, double scalarb, IVector b)
+    {
+        return add(multiply(scalara, a), multiply(scalarb, b));
     }           
     
     @Override

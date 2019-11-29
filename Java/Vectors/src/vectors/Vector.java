@@ -6,35 +6,31 @@
 package vectors;
 
 import java.math.*;
+import java.math.BigDecimal;
 /**
  *
  * @author dw
  */
 public class Vector implements IVector
 {
-    double x;
-    double y;
-    public Vector(double x, double y)
+    BigDecimal x;
+    BigDecimal y;
+    public Vector(BigDecimal x, BigDecimal y)
     {
         this.x = x;
         this.y = y;
     }
     
     @Override
-    public double x() 
+    public BigDecimal x() 
     {
         return this.x;
     }
     
     @Override
-    public double y() 
+    public BigDecimal y() 
     {
         return this.y;
     }    
     
-    @Override
-    public String toString()
-    {
-        return Double.toString(x()) + ":" + Double.toString(y());
-    }
 }
