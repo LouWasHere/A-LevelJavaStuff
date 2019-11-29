@@ -5,6 +5,8 @@
  */
 package binarytreepractice;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author l-bishop
@@ -15,6 +17,7 @@ public class BinaryTree
     Node parent = null;
     Boolean found = false;
     Node root = null;
+    ArrayList<String> values = new ArrayList<>();
     
     public void newNode(String value)
     {
@@ -32,19 +35,6 @@ public class BinaryTree
             {
                 if(parent.desc.compareToIgnoreCase(value) >= 0)
                 {
-                    if(parent.right==null)
-                    {
-                        parent.right = newNode;
-                        found = true;
-                        elements++;
-                    }
-                    else
-                    {
-                        parent = parent.right;
-                    }
-                }
-                else
-                {
                     if(parent.left==null)
                     {
                         parent.left = newNode;
@@ -56,35 +46,59 @@ public class BinaryTree
                         parent = parent.left;
                     }
                 }
-            }
-        }
-    }
-    
-    public void preOrderTraversal()
-    {
-        System.out.println("Root: " + root.desc);
-        parent = root;
-        boolean end = false;
-        for(int i = 0; i<elements; i++)
-        {
-            while(end == false)
-            {
-                if(parent.left != null)
-                {
-                    System.out.println(parent.left.desc);
-                    parent = parent.left;
-                }
-                else if(parent.right != null)
-                {
-                    
-                }
                 else
                 {
-                    end = true;
+                    if(parent.right==null)
+                    {
+                        parent.right = newNode;
+                        found = true;
+                        elements++;
+                    }
+                    else
+                    {
+                        parent = parent.right;
+                    }
                 }
             }
-            
         }
     }
     
+    public void preOrderTraversal(Node pointer)
+    {
+        values.add(pointer.desc);
+        if(pointer.left != null)
+        {
+            preOrderTraversal(pointer.left);
+        }
+        if(pointer.right != null)
+        {
+            preOrderTraversal(pointer.right);
+        }
+    }
+    
+    public void postOrderTraversal(Node pointer)
+    {
+        if(pointer.left != null)
+        {
+            postOrderTraversal(pointer.left);
+        }
+        if(pointer.right != null)
+        {
+            postOrderTraversal(pointer.right);
+        }
+        values.add(pointer.desc);
+    }
+    
+    public void inOrderTraversal(Node pointer)
+    {
+        if(pointer.left != null)
+        {
+            inOrderTraversal(pointer.left);
+        }
+        values.add(pointer.desc);
+        if(pointer.right != null)
+        {
+            inOrderTraversal(pointer.right);
+        }
+    }
 }

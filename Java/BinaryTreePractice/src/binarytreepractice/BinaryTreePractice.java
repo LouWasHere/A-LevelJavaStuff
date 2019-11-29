@@ -24,7 +24,25 @@ public class BinaryTreePractice {
         bt.newNode("Jake");
         bt.newNode("Peter");
         bt.newNode("William");
-        bt.preOrderTraversal();
+        bt.preOrderTraversal(bt.root);
+        bt.values.forEach(name ->
+        {
+            System.out.println(name);
+        });
+        bt.values.clear();
+        System.out.println("\n");
+        bt.postOrderTraversal(bt.root);
+        bt.values.forEach(name ->
+        {
+            System.out.println(name);
+        });
+        bt.values.clear();
+        System.out.println("\n");
+        bt.inOrderTraversal(bt.root);
+        bt.values.forEach(name ->
+        {
+            System.out.println(name);
+        });
     }
     
 }
