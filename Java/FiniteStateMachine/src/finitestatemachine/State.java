@@ -7,13 +7,17 @@ package finitestatemachine;
 
 class State 
 {
-    State desA;
-    State desB;
-    State desC;
+    private State desA;
+    private State desB;
+    private State desC;
+    private String name;
     
-    public State(State destinationA, State destinationB, State destinationC)
+    public State(String name, State destinationA, State destinationB, State destinationC)
     {
         desA = destinationA;
+        desB = destinationB;
+        desC = destinationC;
+        this.name = name;
     }
     
     public State desA()
@@ -27,5 +31,9 @@ class State
     public State desC()
     {
         return desC;
+    }
+    public String name()
+    {
+        return name;
     }
 }

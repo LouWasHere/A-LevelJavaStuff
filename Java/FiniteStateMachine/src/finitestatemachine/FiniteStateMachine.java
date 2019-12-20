@@ -12,17 +12,17 @@ public class FiniteStateMachine
 
     public static void main(String[] args) 
     {
-        State s0 = new State(null, null, null);
-        State s1 = new State(null, null, null);
-        State s2 = new State(null, null, null);
-        State s3 = new State(null, null, null);
-        State s4 = new State(null, null, null);
+        State s0 = new State("s0", null, null, null);
+        State s1 = new State("s1", null, null, null);
+        State s2 = new State("s2", null, null, null);
+        State s3 = new State("s3", null, null, null);
+        State s4 = new State("s4", null, null, null);
         
-        s0 = new State(s1, s4, s4);
-        s1 = new State(s4, s2, s4);
-        s2 = new State(s4, s1, s3);
-        s3 = new State(s4, s4, s3);
-        s4 = new State(s4, s4, s4);
+        s0 = new State("s0", s1, s4, s4);
+        s1 = new State("s1", s4, s2, s4);
+        s2 = new State("s2", s4, s1, s3);
+        s3 = new State("s3", s4, s4, s3);
+        s4 = new State("s4", s4, s4, s4);
         
         State current = s0;
         State next;
@@ -31,10 +31,11 @@ public class FiniteStateMachine
         
         boolean accepted = false;
         
-        while(accepted = false)
+        while(accepted == false)
         {
             
             System.out.println("Enter a, b or c.");
+            System.out.println("Current State: " + current.name());
             try
             {
                 inputString = br.readLine();
@@ -46,12 +47,19 @@ public class FiniteStateMachine
             switch(inputString)
             {
                 case "a":
-                    next = current.desA;
+                    next = current.desA();
+                    current = next;
+                    break;
                 case "b":
-                    next = current.desB;
+                    next = current.desB();
+                    current = next;
+                    break;
                 case "c":
-                    next = current.desC;
+                    next = current.desC();
+                    current = next;
+                    break;
             }
+            
         }
         
     }
