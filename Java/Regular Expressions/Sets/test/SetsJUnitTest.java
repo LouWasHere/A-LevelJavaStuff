@@ -101,7 +101,4 @@ public class SetsJUnitTest {
         ss.addAll( new ArrayList<Integer>(Arrays.asList(0, 1, 3, 5 ,7 ,9) ));
         assertEquals(ss.Cardinality(),expectedResult);
     }
-    
-    
-    
 }
