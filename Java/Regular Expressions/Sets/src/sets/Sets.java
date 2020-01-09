@@ -19,8 +19,9 @@ public class Sets {
     public static void main(String[] args) {
         // TODO code application logic here
         SubSet ss = new SubSet(); 
-        ss.addAll( new ArrayList<Integer>(Arrays.asList(0,1,3) ));
-        System.out.println(ss);
-        System.out.println(ss.Cardinality());
+        ss.addAll( new ArrayList<Integer>(Arrays.asList(0,1,3,5,7,9) ));
+        SubSet ss2 = new SubSet(); 
+        ss2.addAll( new ArrayList<Integer>(Arrays.asList(0,2,4,6,8,10) ));
+        System.out.println(ss.union(ss2));
     }   
 }

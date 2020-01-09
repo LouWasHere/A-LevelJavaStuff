@@ -21,4 +21,13 @@ public class SubSet extends HashSet<Integer>{
     {
         return this.size();                      
     }
+    
+    public SubSet union(SubSet ss)
+    {
+        SubSet thisSet = new SubSet();
+        thisSet = this;
+        thisSet.removeAll(ss);
+        thisSet.addAll(ss);
+        return thisSet;       
+    }
 }
