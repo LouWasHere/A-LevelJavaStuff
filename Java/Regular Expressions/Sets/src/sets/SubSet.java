@@ -9,7 +9,7 @@ import java.util.HashSet;
 
 /**
  *
- * @author dw
+ * @author ljb
  */
 public class SubSet extends HashSet<Integer>
 {    
