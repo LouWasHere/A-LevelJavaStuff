@@ -11,13 +11,14 @@ import java.util.HashSet;
  *
  * @author dw
  */
-public class SubSet extends HashSet<Integer>{    
+public class SubSet extends HashSet<Integer>
+{    
     public SubSet()
     {
         super();        
     }
     
-    public Integer Cardinality()
+    public int Cardinality()
     {
         return this.size();                      
     }
@@ -25,9 +26,37 @@ public class SubSet extends HashSet<Integer>{
     public SubSet union(SubSet ss)
     {
         SubSet thisSet = new SubSet();
-        thisSet = this;
+        thisSet.addAll(this);
         thisSet.removeAll(ss);
         thisSet.addAll(ss);
         return thisSet;       
+    }
+    
+    public SubSet intersection(SubSet ss)
+    {
+        SubSet thisSet = new SubSet();
+        thisSet.addAll(this);
+        thisSet.retainAll(ss);
+        return thisSet;
+    }
+    
+    public SubSet difference(SubSet ss)
+    {
+        SubSet thisSet = new SubSet();
+        thisSet.addAll(this);
+        thisSet.removeAll(ss);
+        return thisSet;
+    }
+    
+    public boolean isSubSet(SubSet ss)
+    {
+        SubSet thisSet = new SubSet();
+        thisSet.addAll(this);
+        return thisSet.containsAll(ss);
+    }
+    
+    public boolean isEmpty()
+    {
+        return this.isEmpty();
     }
 }

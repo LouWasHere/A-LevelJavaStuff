@@ -23,5 +23,6 @@ public class Sets {
         SubSet ss2 = new SubSet(); 
         ss2.addAll( new ArrayList<Integer>(Arrays.asList(0,2,4,6,8,10) ));
         System.out.println(ss.union(ss2));
+        System.out.println(ss.intersection(ss2));
     }   
 }
