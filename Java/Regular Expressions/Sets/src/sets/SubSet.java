@@ -27,9 +27,8 @@ public class SubSet extends HashSet<Integer>
     {
         SubSet thisSet = new SubSet();
         thisSet.addAll(this);
-        thisSet.removeAll(ss);
         thisSet.addAll(ss);
-        return thisSet;       
+        return thisSet;    
     }
     
     public SubSet intersection(SubSet ss)
