@@ -17,32 +17,15 @@ public class BinaryTreePractice {
     public static void main(String[] args) 
     {
         BinaryTree bt = new BinaryTree();
-        bt.newNode("Waterman");
-        bt.newNode("Louis");
-        bt.newNode("Dilan");
-        bt.newNode("Nid");
-        bt.newNode("Jake");
-        bt.newNode("Peter");
-        bt.newNode("William");
-        bt.preOrderTraversal(bt.root);
-        bt.values.forEach(name ->
-        {
-            System.out.println(name);
-        });
-        bt.values.clear();
+        bt.newNode("12");
+        bt.newNode("8");
+        bt.newNode("+");
+        bt.newNode("4");
+        bt.newNode("*");
+
         System.out.println("\n");
-        bt.postOrderTraversal(bt.root);
-        bt.values.forEach(name ->
-        {
-            System.out.println(name);
-        });
-        bt.values.clear();
-        System.out.println("\n");
-        bt.inOrderTraversal(bt.root);
-        bt.values.forEach(name ->
-        {
-            System.out.println(name);
-        });
+        bt.postOrderTraversal(bt.root);  
+        System.out.println(bt.myStack.pop());
     }
     
 }
