@@ -17,7 +17,7 @@ public class ReversePolishSolver
 
     public static void main(String[] args) 
     {
-        Stack<Character> s = new Stack();
+        Stack<String> s = new Stack();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String inputString = null;
         System.out.println("Please enter the Reverse Polish Expression with NO SPACES!");
@@ -29,9 +29,38 @@ public class ReversePolishSolver
         {
             System.err.println(e);
         }
-        for (char c : inputString.toCharArray()) 
+        while(inputString.length() > 0) 
         {
-            s.push(c);
+            
+        }
+        System.out.println(s);
+        while(s.size()>1)
+        {
+            String currentValue = s.pop();
+            int op1 = 0;
+            int op2 = 0;
+            if(currentValue == "+" || currentValue == "/" || currentValue == "*" || currentValue == "-")
+            {
+                switch(currentValue)
+                {
+                    case "+":
+                        s.add(Integer.toString(op1+op2));
+                        break;
+                    case "-":
+                        s.add(Integer.toString(op1-op2));
+                        break;
+                    case "*":
+                        s.add(Integer.toString(op1*op2));
+                        break;
+                    case "/":
+                        s.add(Integer.toString(op1/op2));
+                        break;
+                } 
+            }
+            else
+            {
+                
+            }
         }
     }
     
