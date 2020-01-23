@@ -8,6 +8,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Stack;
+import jdk.nashorn.internal.objects.NativeString;
 /**
  *
  * @author l-bishop
@@ -29,39 +30,27 @@ public class ReversePolishSolver
         {
             System.err.println(e);
         }
-        while(inputString.length() > 0) 
+        while(inputString.length()>0) 
         {
-            
-        }
-        System.out.println(s);
-        while(s.size()>1)
-        {
-            String currentValue = s.pop();
             int op1 = 0;
             int op2 = 0;
-            if(currentValue == "+" || currentValue == "/" || currentValue == "*" || currentValue == "-")
+            if(inputString.substring(0, 1).equals("+") || inputString.substring(0, 1).equals("-") || inputString.substring(0, 1).equals("*") || inputString.substring(0, 1).equals("/"))
             {
-                switch(currentValue)
+                switch(inputString.substring(0, 1))
                 {
                     case "+":
-                        s.add(Integer.toString(op1+op2));
+                        
                         break;
                     case "-":
-                        s.add(Integer.toString(op1-op2));
+                        
                         break;
-                    case "*":
-                        s.add(Integer.toString(op1*op2));
-                        break;
-                    case "/":
-                        s.add(Integer.toString(op1/op2));
-                        break;
-                } 
+                }
             }
-            else
-            {
-                
-            }
+            s.add(inputString.substring(0, 1));
+            inputString = inputString.substring(1);
         }
+        System.out.println(s);
+
     }
     
 }
