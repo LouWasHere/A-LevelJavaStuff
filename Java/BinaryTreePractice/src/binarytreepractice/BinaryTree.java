@@ -6,13 +6,14 @@
 package binarytreepractice;
 
 import java.util.ArrayList;
-
+import java.util.Stack;
 /**
  *
  * @author l-bishop
  */
 public class BinaryTree
 {
+    Stack<String> myStack = new Stack();
     int elements = 0;
     Node parent = null;
     Boolean found = false;
@@ -87,6 +88,40 @@ public class BinaryTree
             postOrderTraversal(pointer.right);
         }
         values.add(pointer.desc);
+        int answer = 0;
+        String pop1;
+        String pop2;
+        if(pointer.desc != "+" || pointer.desc != "-" || pointer.desc != "*" || pointer.desc != "/")
+        {
+            myStack.add(pointer.desc);
+        }
+        else
+        {
+            switch(pointer.desc)
+            {
+                case "+":
+                    pop1 = myStack.pop();
+                    pop2 = myStack.pop();
+                    answer = (Integer.parseInt(pop1)) + (Integer.parseInt(pop2));
+                    break;
+                case "-":
+                    pop1 = myStack.pop();
+                    pop2 = myStack.pop();
+                    answer = (Integer.parseInt(pop1)) - (Integer.parseInt(pop2));
+                    break;
+                case "*":
+                    pop1 = myStack.pop();
+                    pop2 = myStack.pop();
+                    answer = (Integer.parseInt(pop1)) * (Integer.parseInt(pop2));
+                    break;
+                case "/":
+                    pop1 = myStack.pop();
+                    pop2 = myStack.pop();
+                    answer = (Integer.parseInt(pop1)) / (Integer.parseInt(pop2));
+                    break;
+            }
+            myStack.add(Integer.toString(answer));
+        }
     }
     
     public void inOrderTraversal(Node pointer)
@@ -100,5 +135,10 @@ public class BinaryTree
         {
             inOrderTraversal(pointer.right);
         }
+    }
+    
+    public void returnStack()
+    {
+        System.out.println(myStack);
     }
 }
